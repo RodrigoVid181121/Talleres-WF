@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "FXYjnvEVLOB7bk8f5Gj2ppPVhqKIpFgNkz1G+VygizkquTKp/P4/1RLnej74bsd8jrMmMMqibzWTbNXTJ0jtBg==",
+=======
+  "dgSpecHash": "a0Pm0H75xnLpkb0828udYt4eNu6K2E6xHKz3LtDYNTSiBN2G7nFSpOae5aeGIYFdFzAzwRFkTFYUVYiwkd64Xg==",
+>>>>>>> f75a729 (Layout - Index)
   "success": true,
   "projectFilePath": "C:\\Users\\navas\\Downloads\\Talleres WM\\WF_App\\WF_App\\WF_App.csproj",
   "expectedPackageFiles": [],
