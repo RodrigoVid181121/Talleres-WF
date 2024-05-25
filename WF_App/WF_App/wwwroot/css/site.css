@@ -19,4 +19,66 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color:white;
+}
+
+footer{
+    padding: 8px;
+    background-color:whitesmoke;
+    align-items:center;
+    text-align:center;
+}
+
+header{
+    border:none;
+}
+
+.bg-nav {
+    background-color: #4A0911;
+    color:white;
+}
+.white-txt{
+    color:white !important;
+    text-emphasis-color:white;
+}
+.nav-item{
+    padding:1vw;
+    padding-left:3vw;
+    font-size:1.5vw;
+}
+#imgB{
+   background-image: url('../Content/BodyTaller.png');
+   background-size:cover;
+   background-repeat:no-repeat;
+   border:none;
+}
+
+.cont-center{
+    text-align:center;
+    padding:200px 0;
+    border:none;
+}
+
+.inp-login{
+    background-color: #4A0911;
+    border-color:white;
+    border-width:thin;
+    border-radius:12px;
+    color:white;
+}
+
+.inp-center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    justify-content: center;
+}
+button.inp-login {
+    background-color: #4A0911;
+    border-color: #F2AC29;
+    border-width: thin;
+    border-radius: 12px;
+    color: #F2AC29;
+    width:8vw;
 }

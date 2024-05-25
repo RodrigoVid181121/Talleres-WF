@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "LogIn";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WF_App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WF_App.styles.css" asp-append-version="true" />
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+    <script src="~/lib/font-awesome/js/all.js"></script>
+</head>
+<body id="imgB">
+    <div class="cont-center container">
+        <h1 class="white-txt">Login</h1>
+        <h4 class="white-txt" style="font-weight:350;">Ingresa tu usuario y contraseña</h4>
+        <div class="inp-center">
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-login" id="user-addon1"><i class="fa-solid fa-user"></i></span>
+                <input type="text" class="form-control inp-login" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-login" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input id="password" type="text" class="form-control inp-login" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <button type="submit" class="btn inp-login">Login</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -6,4 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Content\BodyTaller.png" />
+    <None Include="wwwroot\Content\Login.png" />
+    <None Include="wwwroot\Content\LogoTaller.png" />
+    <None Include="wwwroot\Content\LogTallerInv.png" />
+  </ItemGroup>
+
 </Project>
