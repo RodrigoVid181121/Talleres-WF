@@ -15,10 +15,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e582f3144153323bf324a23ef8209c3644a2908")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc22c2c668c0173582ec67e8c428ddf201f8abad")]
 >>>>>>> f75a729 (Layout - Index)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f75a72928ab1cef367c65b7de2a0ef1b22706a6c")]
+>>>>>>> b9e5cf3 (Pantallas principales)
 [assembly: System.Reflection.AssemblyProductAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
