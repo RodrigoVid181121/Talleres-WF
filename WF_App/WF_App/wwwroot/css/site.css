@@ -57,3 +57,27 @@ header{
     padding:200px 0;
     border:none;
 }
+
+.inp-login{
+    background-color: #4A0911;
+    border-color:white;
+    border-width:thin;
+    border-radius:12px;
+    color:white;
+}
+
+.inp-center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    justify-content: center;
+}
+button.inp-login {
+    background-color: #4A0911;
+    border-color: #F2AC29;
+    border-width: thin;
+    border-radius: 12px;
+    color: #F2AC29;
+    width:8vw;
+}
