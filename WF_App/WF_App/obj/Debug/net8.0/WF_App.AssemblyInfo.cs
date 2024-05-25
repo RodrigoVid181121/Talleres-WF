@@ -16,6 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e582f3144153323bf324a23ef8209c3644a2908")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc22c2c668c0173582ec67e8c428ddf201f8abad")]
@@ -23,6 +24,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f75a72928ab1cef367c65b7de2a0ef1b22706a6c")]
 >>>>>>> b9e5cf3 (Pantallas principales)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9e5cf3276cbe96cb04e82abff6bc546142fc9c1")]
+>>>>>>> 8b666a6 (cambios leves a css)
 [assembly: System.Reflection.AssemblyProductAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
