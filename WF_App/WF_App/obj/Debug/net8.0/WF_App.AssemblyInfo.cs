@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f75a72928ab1cef367c65b7de2a0ef1b22706a6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9e5cf3276cbe96cb04e82abff6bc546142fc9c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
