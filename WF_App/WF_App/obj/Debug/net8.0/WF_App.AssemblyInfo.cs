@@ -18,6 +18,7 @@ using System.Reflection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e582f3144153323bf324a23ef8209c3644a2908")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc22c2c668c0173582ec67e8c428ddf201f8abad")]
@@ -31,6 +32,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b666a6fb20c224310b291be0681137ee97f8638")]
 >>>>>>> ae4d6ae (Servicios)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae4d6aee9d18e5bbc073e7dbcd188266d62b8349")]
+>>>>>>> 9bd2f47 (Facturacion)
 [assembly: System.Reflection.AssemblyProductAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
