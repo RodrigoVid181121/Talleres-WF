@@ -108,15 +108,21 @@ select.inp-gris {
     width: 6vw;
 }
 
-.btn-serv{
-    margin:1vw 2vw 1vw 2vw;
-    height:4vw;
-    color:white;
-    width:12vw;
-    font-size:large;
+ #dat.inp-gris.in{
+    width:10vw;
+    text-align:right;
 }
-.fil{
-    width:fit-content !important;
+
+.btn-serv {
+    margin: 1vw 2vw 1vw 2vw;
+    height: 4vw;
+    color: white;
+    width: 12vw;
+    font-size: large;
+}
+
+.fil {
+    width: fit-content !important;
 }
 
 .txt-rad {
