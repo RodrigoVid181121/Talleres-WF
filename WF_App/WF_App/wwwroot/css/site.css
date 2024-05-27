@@ -82,3 +82,46 @@ button.inp-login {
     color: #F2AC29;
     width:8vw;
 }
+
+.inp-gris {
+    padding-left: 0.5vw;
+    background-color: #D9D9D9;
+    border-width: thin;
+    border-color: #D9D9D9;
+    border-radius: 12px;
+    color: white;
+    width: fit-content;
+}
+
+select.inp-gris {
+    width:73%;
+}
+
+#dat.inp-gris {
+    padding-right: 0.5vw;
+    margin-right: 0.5vw;
+    background-color: white;
+    border-width: thin;
+    border-color: white;
+    border-radius: 12px;
+    color: black;
+    width: 6vw;
+}
+
+.btn-serv{
+    margin:1vw 2vw 1vw 2vw;
+    height:4vw;
+    color:white;
+    width:12vw;
+    font-size:large;
+}
+.fil{
+    width:fit-content !important;
+}
+
+.txt-rad {
+    margin: 10px;
+    font-size: medium;
+    width:12vw;
+    text-align:right;
+}
