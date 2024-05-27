@@ -4,11 +4,11 @@ using WF_App.Models;
 
 namespace WF_App.Controllers
 {
-    public class ServiciosController : Controller
+    public class FacturacionController : Controller
     {
-        private readonly ILogger<ServiciosController> _logger;
+        private readonly ILogger<FacturacionController> _logger;
 
-        public ServiciosController(ILogger<ServiciosController> logger)
+        public FacturacionController(ILogger<FacturacionController> logger)
         {
             _logger = logger;
         }
