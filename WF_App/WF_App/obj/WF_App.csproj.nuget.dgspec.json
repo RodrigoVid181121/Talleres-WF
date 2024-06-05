@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\navas\\Downloads\\Talleres WM\\WF_App\\WF_App\\WF_App.csproj": {}
+    "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\navas\\Downloads\\Talleres WM\\WF_App\\WF_App\\WF_App.csproj": {
+    "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\navas\\Downloads\\Talleres WM\\WF_App\\WF_App\\WF_App.csproj",
+        "projectUniqueName": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
         "projectName": "WF_App",
-        "projectPath": "C:\\Users\\navas\\Downloads\\Talleres WM\\WF_App\\WF_App\\WF_App.csproj",
+        "projectPath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
         "packagesPath": "C:\\Users\\navas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\navas\\Downloads\\Talleres WM\\WF_App\\WF_App\\obj\\",
+        "outputPath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -54,6 +54,16 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -78,11 +88,13 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+<<<<<<< HEAD
 =======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
 >>>>>>> f75a729 (Layout - Index)
+=======
+>>>>>>> f47f82a (Arreglando Script BD y ViewModel)
         }
       }
     }
