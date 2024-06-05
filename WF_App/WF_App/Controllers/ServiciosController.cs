@@ -26,6 +26,12 @@ namespace WF_App.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(int a)
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
