@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<div class="row">
+    <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-plus" style="margin-right:5px;"></i>Nuevo Producto</button>
+    <button type="submit" class="btn-serv btn-secondary btn" ><i class="fa-solid fa-plus" style="margin-right:5px;"></i>Reportes</button>
+    <button type="submit" class="btn-serv btn-light btn" style="color:black"><i class="fa-solid fa-filter" style="margin-right:5px; color:deepskyblue"></i>Filtrar</button>
+</div>
+<div class="container">
+    <h2>Productos</h2>
+    <table class="table table-bordered" style="align-items">
+        <thead>
+            <tr>
+                <th>Opciones</th>
+                <th>Producto</th>
+                <th>Codigo</th>
+                <th>Cantidad</th>
+                <th>Precio de Costo</th>
+                <th>Precio de Venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <div class="form-group row justify-content-center" >
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn-danger btn"><i class="fa-solid fa-trash" style="margin-right:5px; margin-left:10px; "></i></button>
+                        </div> <div class="space">
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn-primary btn"><i class="fa-solid fa-pen-to-square" style="margin-right:5px; margin-left:10px"></i></button>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>

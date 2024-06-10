@@ -19,4 +19,115 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color:white;
+}
+
+footer{
+    padding: 8px;
+    background-color:whitesmoke;
+    align-items:center;
+    text-align:center;
+}
+
+header{
+    border:none;
+}
+
+.bg-nav {
+    background-color: #4A0911;
+    color:white;
+}
+.white-txt{
+    color:white !important;
+    text-emphasis-color:white;
+}
+.nav-item{
+    padding:1vw;
+    padding-left:3vw;
+    font-size:1.5vw;
+}
+#imgB{
+   background-image: url('../Content/BodyTaller.png');
+   background-size:cover;
+   background-repeat:no-repeat;
+   border:none;
+}
+
+.cont-center{
+    text-align:center;
+    padding:200px 0;
+    border:none;
+}
+
+.inp-login{
+    background-color: #4A0911;
+    border-color:white;
+    border-width:thin;
+    border-radius:12px;
+    color:white;
+}
+
+.inp-center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    justify-content: center;
+}
+button.inp-login {
+    background-color: #4A0911;
+    border-color: #F2AC29;
+    border-width: thin;
+    border-radius: 12px;
+    color: #F2AC29;
+    width:8vw;
+}
+
+.inp-gris {
+    padding-left: 0.5vw;
+    background-color: #D9D9D9;
+    border-width: thin;
+    border-color: #D9D9D9;
+    border-radius: 12px;
+    color: white;
+    width: fit-content;
+}
+
+select.inp-gris {
+    width:73%;
+}
+
+#dat.inp-gris {
+    padding-right: 0.5vw;
+    margin-right: 0.5vw;
+    background-color: white;
+    border-width: thin;
+    border-color: white;
+    border-radius: 12px;
+    color: black;
+    width: 6vw;
+}
+
+ #dat.inp-gris.in{
+    width:10vw;
+    text-align:right;
+}
+
+.btn-serv {
+    margin: 1vw 2vw 1vw 2vw;
+    height: 4vw;
+    color: white;
+    width: 12vw;
+    font-size: large;
+}
+
+.fil {
+    width: fit-content !important;
+}
+
+.txt-rad {
+    margin: 10px;
+    font-size: medium;
+    width:12vw;
+    text-align:right;
 }

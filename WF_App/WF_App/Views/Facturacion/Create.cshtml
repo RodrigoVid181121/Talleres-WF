@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm">
+        <h1 style="margin-bottom:2vw;">Facturacion</h1>
+        <div class="input-group mb-3">           
+            <span class="input-group-text inp-gris in" id="dat">Nombre:</span>
+            <input id="datos" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text inp-gris in" id="dat">Placa:</span>
+            <input type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text inp-gris in" id="dat">Servicio:</span>
+            <input type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text inp-gris in" id="dat">Encargado:</span>
+            <input type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text inp-gris in" id="dat">Forma de pago:</span>
+            <select id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text inp-gris in" id="dat">Productos:</span>
+            <select id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <button type="submit" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Guardar</button>
+    </div>
+    <div class="col-sm-5">
+        <h3 style="margin-bottom:2vw;color:darkred;">No.12333</h3>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text fil inp-gris" id="dat">Productos:</span>
+            </div>
+            <textarea class="form-control inp-gris" aria-label="With textarea" readonly></textarea>
+        </div>
+    </div>
+</div>
