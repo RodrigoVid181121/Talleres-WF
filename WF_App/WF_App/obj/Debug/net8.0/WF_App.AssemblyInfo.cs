@@ -21,6 +21,7 @@ using System.Reflection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e582f3144153323bf324a23ef8209c3644a2908")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc22c2c668c0173582ec67e8c428ddf201f8abad")]
@@ -43,6 +44,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+834075ede7ba842f5e3b9435a0de1d3111c16a15")]
 >>>>>>> 11f11cf (Index Cambios)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+834075ede7ba842f5e3b9435a0de1d3111c16a15")]
+>>>>>>> f0781b4 (Index Cambios)
 [assembly: System.Reflection.AssemblyProductAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WF_App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
