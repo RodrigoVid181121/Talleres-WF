@@ -40,8 +40,8 @@
         <button type="submit" class="btn btn-info btn-serv"><i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Guardar</button>
         <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-rotate-right" style="margin-right:5px;"></i>Restablecer</button>
         <button type="submit" class="btn btn-danger btn-serv"><i class="fa-solid fa-xmark" style="margin-right:5px;"></i>Cancelar</button>
-    </div>
-    <div class="col-sm">
+    </div> <!--Fin datos entrega -->
+    <div class="col-sm">      
         <div class="input-group mb-3">
             <span class="input-group-text inp-gris" id="dat">Servicio:</span>
             <select id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
@@ -50,15 +50,16 @@
                 <option value="3">Three</option>
             </select>
             <button type="submit" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
-        </div>
-        <nav>
+            </div> <!--Fin combo servicio -->
+        <nav> <!-- Constructor de tabs -->
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Vehiculo</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Entrega</button>
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-vehiculo" type="button" role="tab" aria-controls="nav-vehiculo" aria-selected="true">Vehiculo</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-doc" type="button" role="tab" aria-controls="nav-doc" aria-selected="false">Documentacion</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-entrega" type="button" role="tab" aria-controls="nav-entrega" aria-selected="false">Entrega</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="tab-pane fade show active" id="nav-vehiculo" role="tabpanel" aria-labelledby="nav-vehiculo-tab">
                 <div class="row">
                 <label for="datos" style="margin:10px; font-size:medium;">Descripcion del vehiculo</label>
                 <div class="col-sm">
@@ -107,7 +108,7 @@
                         <input asp-for="KilOut" id="dat2" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
                                 <span asp-validation-for="KilOut" class="text-danger"></span>
                     </div>
-                </div>
+                        </div>  <!--Fin colum derecha tab descr vehiculo -->
                 <div class="col-sm">
                     <div class="input-group mb-3">
                         <span class="input-group-text inp-gris" id="dat">Año:</span>
@@ -141,13 +142,13 @@
                         <input asp-for="Mecanico" id="datos" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
                                 <span asp-validation-for="Mecanico" class="text-danger"></span>
                     </div>
-                </div>
-                    <div class="input-group mb-3">
+                        </div>  <!--Fin colum izq tab descr vehiculo -->
+                <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text inp-gris fil" id="dat">Estado de pintura y carroceria:</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/png, image/jpeg">
                         </div>
                     </div>
                     <div class="input-group">
@@ -157,8 +158,52 @@
                         <textarea class="form-control inp-gris" aria-label="With textarea"></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                </div> <!--Fin tab descr vehiculo -->
+            <div class="tab-pane fade" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
+                    <span class="input-group-text inp-gris" id="dat" style="margin:10px; font-size:large;">Documentacion</span>
+                    <div class="container">
+                        <label for="radio" class="txt-rad">Llaves:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="1">
+                            <label class="form-check-label" for="inlineradio1">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="0">
+                            <label class="form-check-label" for="inlineradio1">No</label>
+                        </div>
+                        <div class="w-100"></div>
+                        <label for="radio" class="txt-rad">Tarjeta:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="1">
+                            <label class="form-check-label" for="inlineradio2">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="0">
+                            <label class="form-check-label" for="inlineradio2">No</label>
+                        </div>
+                        <div class="w-100"></div>
+                        <label for="radio" class="txt-rad">Poliza/placa:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="PerillaCal" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="1">
+                            <label class="form-check-label" for="inlineradio3">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="PerillaCal" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="0">
+                            <label class="form-check-label" for="inlineradio3">No</label>
+                        </div>
+                        <div class="w-100"></div>
+                        <label for="radio" class="txt-rad">Control de alarma:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="1">
+                            <label class="form-check-label" for="inlineradio4">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="0">
+                            <label class="form-check-label" for="inlineradio4">No</label>
+                        </div>
+                    </div> <!--Fin container tab docu -->
+                </div> <!--Fin tab docu -->
+            <div class="tab-pane fade" id="nav-entrega" role="tabpanel" aria-labelledby="nav-entrega-tab">
                 <span class="input-group-text inp-gris" id="dat" style="margin:10px; font-size:large;">Condicion de entrega</span>
                 <div class="container">
                     <label for="radio" class="txt-rad" >Radio:</label>
@@ -400,9 +445,9 @@
                         <input asp-for="CableCorriente" class="form-check-input" type="radio" name="inlineRadioOptions24" id="inlineradio24" value="0">
                         <label class="form-check-label" for="inlineradio24">No funciona</label>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div> <!--Fin container tab entrega -->
+                </div>  <!--Fin tab cond entrega -->
+        </div> <!--Fin nav tabs -->
+    </div> <!--Fin col con tabs -->
+</div><!--Fin row-->
 </form>

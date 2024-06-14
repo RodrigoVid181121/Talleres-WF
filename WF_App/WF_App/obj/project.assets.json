@@ -8134,24 +8134,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\navas\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Rocio.HWC-HWP-6003180\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
+      "projectUniqueName": "C:\\Users\\Rocio.HWC-HWP-6003180\\Documents\\GitHub\\Talleres-WF\\WF_App\\WF_App\\WF_App.csproj",
       "projectName": "WF_App",
-      "projectPath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
-      "packagesPath": "C:\\Users\\navas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\obj\\",
+      "projectPath": "C:\\Users\\Rocio.HWC-HWP-6003180\\Documents\\GitHub\\Talleres-WF\\WF_App\\WF_App\\WF_App.csproj",
+      "packagesPath": "C:\\Users\\Rocio.HWC-HWP-6003180\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rocio.HWC-HWP-6003180\\Documents\\GitHub\\Talleres-WF\\WF_App\\WF_App\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\navas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Rocio.HWC-HWP-6003180\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8159,7 +8154,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8172,11 +8166,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8221,7 +8210,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
