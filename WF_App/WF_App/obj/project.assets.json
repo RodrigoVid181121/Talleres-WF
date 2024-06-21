@@ -8140,11 +8140,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
+      "projectUniqueName": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\WF_App.csproj",
       "projectName": "WF_App",
-      "projectPath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
+      "projectPath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\WF_App.csproj",
       "packagesPath": "C:\\Users\\navas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\obj\\",
+      "outputPath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

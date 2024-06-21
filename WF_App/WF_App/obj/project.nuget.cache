@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q1aznbvjm06CQyr1IPM2LS+D7i56t059SznE0IAK36oFeNhfqMNQq19VNoyMHBndkCHbJkzlrxKBxvID6rG6Vg==",
+  "dgSpecHash": "ndAwdfgNG5DNpOK3W0Vr24Ye10YUnV+5QYdlOG7SSQx3+0TC7apr5ND+ThGG9S0NCZJiS3ormAwwbcMdQjWdEQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\navas\\Downloads\\Talleres\\WF_App\\WF_App\\WF_App.csproj",
+  "projectFilePath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\WF_App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\navas\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\navas\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
