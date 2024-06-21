@@ -9,11 +9,7 @@ public partial class Cliente
 
     public string? Nombre { get; set; }
 
-    public string? Direccion { get; set; }
-
     public string? Telefono { get; set; }
-
-    public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
 
     public virtual ICollection<Vehiculo> Vehiculos { get; set; } = new List<Vehiculo>();
 

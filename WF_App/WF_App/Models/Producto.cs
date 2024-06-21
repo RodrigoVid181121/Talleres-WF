@@ -15,7 +15,7 @@ public partial class Producto
 
     public decimal PrecioVenta { get; set; }
 
-    public string ModeloVehiculo { get; set; } = null!;
+    public string? ModeloVehiculo { get; set; }
 
     public virtual ICollection<DetalleCompra> DetalleCompras { get; set; } = new List<DetalleCompra>();
 

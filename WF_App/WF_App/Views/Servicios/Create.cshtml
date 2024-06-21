@@ -86,8 +86,8 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text inp-gris" id="dat">Tipo Km/Mi:</span>
                     <select asp-for="Distancia" id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-                        <option value="1">Kilometros</option>
-                        <option value="2">Millas</option>
+                        <option value="Kilometros">Kilometros</option>
+                        <option value="Millas">Millas</option>
                     </select>
                 </div>
                     <div class="input-group mb-3">
@@ -123,8 +123,8 @@
                     <div class="input-group mb-3">
                     <span class="input-group-text inp-gris" id="dat">Tipo Gas:</span>
                     <select asp-for="Combustible" id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-                        <option value="1">Kilometros</option>
-                        <option value="2">Millas</option>
+                        <option value="1">Diesel</option>
+                        <option value="2">Gasolina</option>
                     </select>
                     </div>
                     <div class="input-group mb-3">
@@ -164,41 +164,41 @@
                     <div class="container">
                         <label for="radio" class="txt-rad">Llaves:</label>
                         <div class="form-check form-check-inline">
-                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="1">
+                            <input asp-for="Llaves" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="1">
                             <label class="form-check-label" for="inlineradio1">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="0">
+                            <input asp-for="Llaves" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="0">
                             <label class="form-check-label" for="inlineradio1">No</label>
                         </div>
                         <div class="w-100"></div>
                         <label for="radio" class="txt-rad">Tarjeta:</label>
                         <div class="form-check form-check-inline">
-                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="1">
+                            <input asp-for="Tarjeta" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="1">
                             <label class="form-check-label" for="inlineradio2">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="0">
+                            <input asp-for="Tarjeta" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="0">
                             <label class="form-check-label" for="inlineradio2">No</label>
                         </div>
                         <div class="w-100"></div>
                         <label for="radio" class="txt-rad">Poliza/placa:</label>
                         <div class="form-check form-check-inline">
-                            <input asp-for="PerillaCal" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="1">
+                            <input asp-for="Poliza" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="1">
                             <label class="form-check-label" for="inlineradio3">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input asp-for="PerillaCal" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="0">
+                            <input asp-for="Poliza" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="0">
                             <label class="form-check-label" for="inlineradio3">No</label>
                         </div>
                         <div class="w-100"></div>
                         <label for="radio" class="txt-rad">Control de alarma:</label>
                         <div class="form-check form-check-inline">
-                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="1">
+                            <input asp-for="Control_Alarma" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="1">
                             <label class="form-check-label" for="inlineradio4">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="0">
+                            <input asp-for="Control_Alarma" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="0">
                             <label class="form-check-label" for="inlineradio4">No</label>
                         </div>
                     </div> <!--Fin container tab docu -->

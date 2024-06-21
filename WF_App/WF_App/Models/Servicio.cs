@@ -9,11 +9,9 @@ public partial class Servicio
 
     public int? IdVehiculo { get; set; }
 
-    public int? IdCliente { get; set; }
-
-    public int? IdDocs { get; set; }
-
     public string GasRecibido { get; set; } = null!;
+
+    public bool Estado { get; set; }
 
     public DateOnly FechaIn { get; set; }
 
@@ -21,7 +19,7 @@ public partial class Servicio
 
     public double? MilIn { get; set; }
 
-    public DateOnly FechaOut { get; set; }
+    public DateOnly? FechaOut { get; set; }
 
     public double? KmOut { get; set; }
 
@@ -31,15 +29,13 @@ public partial class Servicio
 
     public string Receptor { get; set; } = null!;
 
-    public int? IdCon { get; set; }
+    public string Mecanico { get; set; } = null!;
+
+    public string? EncargadoVehi { get; set; }
+
+    public string? CargoEn { get; set; }
 
     public string? Comentarios { get; set; }
-
-    public virtual Cliente? IdClienteNavigation { get; set; }
-
-    public virtual Condicione? IdConNavigation { get; set; }
-
-    public virtual Documento? IdDocsNavigation { get; set; }
 
     public virtual Vehiculo? IdVehiculoNavigation { get; set; }
 }

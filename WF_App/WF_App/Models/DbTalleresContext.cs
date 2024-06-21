@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace WF_App.Models;
@@ -53,7 +54,7 @@ public partial class DbTalleresContext : DbContext
     {
         modelBuilder.Entity<Cargo>(entity =>
         {
-            entity.HasKey(e => e.IdCargo).HasName("PK__cargos__D3C09EC59A866BEE");
+            entity.HasKey(e => e.IdCargo).HasName("PK__cargos__D3C09EC58641B051");
 
             entity.ToTable("cargos");
 
@@ -66,13 +67,11 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Clientes__3213E83F9850131C");
+            entity.HasKey(e => e.Id).HasName("PK__Clientes__3213E83FA8681D30");
+
+            entity.HasIndex(e => e.Telefono, "UQ__Clientes__2A16D9450C9F98E7").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Direccion)
-                .HasMaxLength(150)
-                .IsUnicode(false)
-                .HasColumnName("direccion");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(75)
                 .IsUnicode(false)
@@ -85,7 +84,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Compra>(entity =>
         {
-            entity.HasKey(e => e.IdCompra).HasName("PK__Compra__C4BAA60424933729");
+            entity.HasKey(e => e.IdCompra).HasName("PK__Compra__C4BAA60431EC682A");
 
             entity.ToTable("Compra");
 
@@ -107,16 +106,16 @@ public partial class DbTalleresContext : DbContext
 
             entity.HasOne(d => d.IdProveedorNavigation).WithMany(p => p.Compras)
                 .HasForeignKey(d => d.IdProveedor)
-                .HasConstraintName("FK__Compra__id_prove__5EBF139D");
+                .HasConstraintName("FK__Compra__id_prove__5DCAEF64");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Compras)
                 .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("FK__Compra__id_usuar__5DCAEF64");
+                .HasConstraintName("FK__Compra__id_usuar__5CD6CB2B");
         });
 
         modelBuilder.Entity<Condicione>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Condicio__3213E83FB4BC8A97");
+            entity.HasKey(e => e.Id).HasName("PK__Condicio__3213E83F100C0B0C");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AireAc).HasColumnName("aire_ac");
@@ -147,7 +146,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Contabilidad>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Contabil__3213E83F0ACF0905");
+            entity.HasKey(e => e.Id).HasName("PK__Contabil__3213E83FA506E28A");
 
             entity.ToTable("Contabilidad");
 
@@ -174,7 +173,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<DetalleCompra>(entity =>
         {
-            entity.HasKey(e => e.IdDetalleCompra).HasName("PK__Detalle___BD16E2799530FC1C");
+            entity.HasKey(e => e.IdDetalleCompra).HasName("PK__Detalle___BD16E279D4D082DC");
 
             entity.ToTable("Detalle_Compra");
 
@@ -201,16 +200,16 @@ public partial class DbTalleresContext : DbContext
 
             entity.HasOne(d => d.IdCompraNavigation).WithMany(p => p.DetalleCompras)
                 .HasForeignKey(d => d.IdCompra)
-                .HasConstraintName("FK__Detalle_C__id_co__628FA481");
+                .HasConstraintName("FK__Detalle_C__id_co__619B8048");
 
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.DetalleCompras)
                 .HasForeignKey(d => d.IdProducto)
-                .HasConstraintName("FK__Detalle_C__id_pr__6383C8BA");
+                .HasConstraintName("FK__Detalle_C__id_pr__628FA481");
         });
 
         modelBuilder.Entity<DetalleVentum>(entity =>
         {
-            entity.HasKey(e => e.IdDetalle).HasName("PK__Detalle___4F1332DEF1A4AABC");
+            entity.HasKey(e => e.IdDetalle).HasName("PK__Detalle___4F1332DE528AE0AD");
 
             entity.ToTable("Detalle_Venta");
 
@@ -236,16 +235,16 @@ public partial class DbTalleresContext : DbContext
 
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.DetalleVenta)
                 .HasForeignKey(d => d.IdProducto)
-                .HasConstraintName("FK__Detalle_V__id_pr__59FA5E80");
+                .HasConstraintName("FK__Detalle_V__id_pr__59063A47");
 
             entity.HasOne(d => d.IdVentaNavigation).WithMany(p => p.DetalleVenta)
                 .HasForeignKey(d => d.IdVenta)
-                .HasConstraintName("FK__Detalle_V__id_ve__59063A47");
+                .HasConstraintName("FK__Detalle_V__id_ve__5812160E");
         });
 
         modelBuilder.Entity<Documento>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Document__3213E83FC412C5A8");
+            entity.HasKey(e => e.Id).HasName("PK__Document__3213E83FAC59949D");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Alarma).HasColumnName("alarma");
@@ -256,7 +255,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Ga>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Gas__3213E83FA342EBE4");
+            entity.HasKey(e => e.Id).HasName("PK__Gas__3213E83FBFF1AEC3");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Nombre)
@@ -267,7 +266,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Producto__3213E83FB6D8CD12");
+            entity.HasKey(e => e.Id).HasName("PK__Producto__3213E83FD8114467");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
@@ -289,7 +288,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Proveedore>(entity =>
         {
-            entity.HasKey(e => e.IdProveedor).HasName("PK__Proveedo__8D3DFE28F845BC6C");
+            entity.HasKey(e => e.IdProveedor).HasName("PK__Proveedo__8D3DFE280E0E8F0C");
 
             entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.CodigoProveedor)
@@ -316,25 +315,35 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Servicio>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Servicio__3213E83FF9055BF2");
+            entity.HasKey(e => e.Id).HasName("PK__Servicio__3213E83F54B859CC");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CargoEn)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("cargo_en");
             entity.Property(e => e.Comentarios)
                 .HasMaxLength(500)
                 .IsUnicode(false)
                 .HasColumnName("comentarios");
+            entity.Property(e => e.EncargadoVehi)
+                .HasMaxLength(75)
+                .IsUnicode(false)
+                .HasColumnName("encargado_vehi");
+            entity.Property(e => e.Estado).HasColumnName("estado");
             entity.Property(e => e.FechaIn).HasColumnName("fecha_in");
             entity.Property(e => e.FechaOut).HasColumnName("fecha_out");
             entity.Property(e => e.GasRecibido)
                 .HasMaxLength(3)
                 .IsUnicode(false)
                 .HasColumnName("gas_recibido");
-            entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
-            entity.Property(e => e.IdCon).HasColumnName("id_con");
-            entity.Property(e => e.IdDocs).HasColumnName("id_docs");
             entity.Property(e => e.IdVehiculo).HasColumnName("id_vehiculo");
             entity.Property(e => e.KmIn).HasColumnName("km_in");
             entity.Property(e => e.KmOut).HasColumnName("km_out");
+            entity.Property(e => e.Mecanico)
+                .HasMaxLength(75)
+                .IsUnicode(false)
+                .HasColumnName("mecanico");
             entity.Property(e => e.MilIn).HasColumnName("mil_in");
             entity.Property(e => e.MilOut).HasColumnName("mil_out");
             entity.Property(e => e.Pintura)
@@ -345,26 +354,16 @@ public partial class DbTalleresContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("receptor");
 
-            entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Servicios)
-                .HasForeignKey(d => d.IdCliente)
-                .HasConstraintName("FK__Servicios__id_cl__44FF419A");
-
-            entity.HasOne(d => d.IdConNavigation).WithMany(p => p.Servicios)
-                .HasForeignKey(d => d.IdCon)
-                .HasConstraintName("FK__Servicios__id_co__46E78A0C");
-
-            entity.HasOne(d => d.IdDocsNavigation).WithMany(p => p.Servicios)
-                .HasForeignKey(d => d.IdDocs)
-                .HasConstraintName("FK__Servicios__id_do__45F365D3");
-
             entity.HasOne(d => d.IdVehiculoNavigation).WithMany(p => p.Servicios)
                 .HasForeignKey(d => d.IdVehiculo)
-                .HasConstraintName("FK__Servicios__id_ve__440B1D61");
+                .HasConstraintName("FK__Servicios__id_ve__4E88ABD4");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__4E3E04AD87CC33DA");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__4E3E04ADA1CF1258");
+
+            entity.HasIndex(e => e.Codigo, "UQ__Usuarios__40F9A20646E3612B").IsUnique();
 
             entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.Apellido)
@@ -391,12 +390,14 @@ public partial class DbTalleresContext : DbContext
             entity.HasOne(d => d.IdCargoNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdCargo)
                 .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__Usuarios__id_car__4F7CD00D");
+                .HasConstraintName("FK__Usuarios__id_car__3A81B327");
         });
 
         modelBuilder.Entity<Vehiculo>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Vehiculo__3213E83F0373D5CF");
+            entity.HasKey(e => e.Id).HasName("PK__Vehiculo__3213E83F53B00B56");
+
+            entity.HasIndex(e => e.Placa, "UQ__Vehiculo__0C0574256F2EAFC1").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Año).HasColumnName("año");
@@ -405,6 +406,7 @@ public partial class DbTalleresContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("color");
             entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
+            entity.Property(e => e.IdCon).HasColumnName("id_con");
             entity.Property(e => e.IdDocs).HasColumnName("id_docs");
             entity.Property(e => e.IdGas).HasColumnName("id_gas");
             entity.Property(e => e.Marca)
@@ -419,10 +421,6 @@ public partial class DbTalleresContext : DbContext
                 .HasMaxLength(9)
                 .IsFixedLength()
                 .HasColumnName("placa");
-            entity.Property(e => e.Receptor)
-                .HasMaxLength(75)
-                .IsUnicode(false)
-                .HasColumnName("receptor");
             entity.Property(e => e.Tipo)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -430,20 +428,24 @@ public partial class DbTalleresContext : DbContext
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Vehiculos)
                 .HasForeignKey(d => d.IdCliente)
-                .HasConstraintName("FK__Vehiculos__id_cl__3E52440B");
+                .HasConstraintName("FK__Vehiculos__id_cl__49C3F6B7");
+
+            entity.HasOne(d => d.IdConNavigation).WithMany(p => p.Vehiculos)
+                .HasForeignKey(d => d.IdCon)
+                .HasConstraintName("FK__Vehiculos__id_co__4BAC3F29");
 
             entity.HasOne(d => d.IdDocsNavigation).WithMany(p => p.Vehiculos)
                 .HasForeignKey(d => d.IdDocs)
-                .HasConstraintName("FK__Vehiculos__id_do__3F466844");
+                .HasConstraintName("FK__Vehiculos__id_do__4AB81AF0");
 
             entity.HasOne(d => d.IdGasNavigation).WithMany(p => p.Vehiculos)
                 .HasForeignKey(d => d.IdGas)
-                .HasConstraintName("FK__Vehiculos__id_ga__3D5E1FD2");
+                .HasConstraintName("FK__Vehiculos__id_ga__48CFD27E");
         });
 
         modelBuilder.Entity<Ventum>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("PK__Venta__459533BFB5B1A15F");
+            entity.HasKey(e => e.IdVenta).HasName("PK__Venta__459533BF79FAE3A6");
 
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
             entity.Property(e => e.Descuento).HasColumnName("descuento");
@@ -467,15 +469,76 @@ public partial class DbTalleresContext : DbContext
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Venta)
                 .HasForeignKey(d => d.IdCliente)
-                .HasConstraintName("FK__Venta__id_client__5535A963");
+                .HasConstraintName("FK__Venta__id_client__5441852A");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Venta)
                 .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("FK__Venta__id_usuari__5441852A");
+                .HasConstraintName("FK__Venta__id_usuari__534D60F1");
         });
 
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public async Task InsertClientSP(string name, string telefono)
+    {
+        var nombre = new SqlParameter("@nombre", name);
+        var tel = new SqlParameter("@telefono", telefono);
+
+        await Database.ExecuteSqlRawAsync("EXEC SP_InsertClient @nombre, @telefono", nombre,tel);
+    }
+
+    public async Task VehiculoSP(int llaves, int tarjeta, int poliza, int alarma, string placa, string marca, string modelo,
+        string color, int año, string tipo, int idGas, string telefono, int radio, int mascrad, int perilla, int ac,
+        int contAl, int pito, int espInt, int espExt, int antena, int tapaLlanta, int emblemaLat, int emblemaPost,
+        int gato, int llaverueda, int herramientas, int kitCarretera, int tapagas, int encen, int TapaFrenos, int Tapafus,
+        int alfombras, int llantaEmer, int copaLlantas, int pasacorrientes)
+    {
+        var Llaves = new SqlParameter("@llaves", llaves);
+        var Tarjeta = new SqlParameter("@tarjeta", tarjeta);
+        var Poliza = new SqlParameter("@poliza", poliza);
+        var Alarma = new SqlParameter("@alarma", alarma);
+        var Placa = new SqlParameter("@placa", placa);
+        var Marca = new SqlParameter("@marca", marca);
+        var Modelo = new SqlParameter("@modelo", modelo);
+        var Color = new SqlParameter("@color", color);
+        var Año = new SqlParameter("@año", año);
+        var Tipo = new SqlParameter("@tipo", tipo);
+        var IdGas = new SqlParameter("@idGas", idGas);
+        var Telefono = new SqlParameter("@telefono", telefono);
+        var Radio = new SqlParameter("@radio", radio);
+        var MascRadio = new SqlParameter("@mascara_radio", mascrad);
+        var Perilla = new SqlParameter("@perilla_cal", perilla);
+        var Ac = new SqlParameter("@aire_ac", ac);
+        var ContAl = new SqlParameter("@cont_alar", contAl);
+        var Pito = new SqlParameter("@pito", pito);
+        var EspInt = new SqlParameter("@esp_int", espInt);
+        var EspExt = new SqlParameter("@esp_ext", espExt);
+        var Antena = new SqlParameter("@antena", antena);
+        var TapaLlanta = new SqlParameter("@tapa_llanta", tapaLlanta);
+        var EmbLat = new SqlParameter("@emblema_lat", emblemaLat);
+        var EmbPost = new SqlParameter("@emblema_post", emblemaPost);
+        var Gato = new SqlParameter("@gato", gato);
+        var LlaveRueda = new SqlParameter("@llave_rueda", llaverueda);
+        var Herramientas = new SqlParameter("@herramientas", herramientas);
+        var KitCarretera = new SqlParameter("@kit_carretera", kitCarretera);
+        var TapaGas = new SqlParameter("@tapa_gas", tapagas);
+        var Encendedor = new SqlParameter("@encendedor", encen);
+        var Tapafrenos = new SqlParameter("@tapa_liq_frenos", TapaFrenos);
+        var TapaFus = new SqlParameter("@tapa_fusibles", Tapafus);
+        var Alfombras = new SqlParameter("@alfombras", alfombras);
+        var LlantaEmer = new SqlParameter("@llanta_emergencia", llantaEmer);
+        var CopaLlantas = new SqlParameter("@copa_llantas", copaLlantas);
+        var CableCorr = new SqlParameter("@cable_corriente", pasacorrientes);
+
+        await Database.ExecuteSqlRawAsync("EXEC SP_InsertVehiculo @llaves, @tarjeta, @poliza, @alarma, @placa, @marca," +
+            "@modelo, @color, @año, @tipo,@idGas, @telefono, @radio , @mascara_radio, @perilla_cal, @aire_ac," +
+            "@cont_alar, @pito, @esp_int, @esp_ext, @antena, @tapa_llanta, @emblema_lat,@emblema_post, @gato,@llave_rueda," +
+            "@herramientas,@kit_carretera,@tapa_gas,@encendedor,@tapa_liq_frenos,@tapa_fusibles,@alfombras," +
+            "@llanta_emergencia,@copa_llantas,@cable_corriente",Llaves,Tarjeta,Poliza,Alarma,Placa,Marca,Modelo,Color,Año,
+            Tipo,IdGas,Telefono,Radio,MascRadio,Perilla,Ac,ContAl,Pito,EspInt,EspExt,Antena,TapaLlanta,EmbLat,EmbPost,
+            Gato,LlaveRueda,Herramientas,KitCarretera,TapaGas,Encendedor,Tapafrenos,TapaFus,Alfombras,LlantaEmer,CopaLlantas,
+            CableCorr);
+    }
 }

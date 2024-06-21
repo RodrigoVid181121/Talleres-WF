@@ -4,6 +4,7 @@ namespace WF_App.Models.ViewModels
 {
     public class ServiciosViewModel
     {
+        public List<Ga> Gas { get; set; }
         //Datos de quien entrega
         [Required]
         public string Nombre { get; set; }
@@ -28,7 +29,17 @@ namespace WF_App.Models.ViewModels
         public int Año { get; set; }
         [Required]
         [Display(Name ="Tipo Gas")]
-        public string Combustible { get; set; }
+        public int Combustible { get; set; }
+
+        //Documentos
+        [Required]
+        public int Llaves { get; set; }
+        [Required]
+        public int Tarjeta { get; set; }
+        [Required]
+        public int Poliza { get; set; }
+        [Required]
+        public int Control_Alarma { get; set; }
 
         //Servicio
         [Required]
