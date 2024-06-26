@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using WF_App.Models.ViewModels;
 
 namespace WF_App.Models;
 
@@ -54,7 +56,7 @@ public partial class DbTalleresContext : DbContext
     {
         modelBuilder.Entity<Cargo>(entity =>
         {
-            entity.HasKey(e => e.IdCargo).HasName("PK__cargos__D3C09EC58641B051");
+            entity.HasKey(e => e.IdCargo).HasName("PK__cargos__D3C09EC5542B83A4");
 
             entity.ToTable("cargos");
 
@@ -67,9 +69,9 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Clientes__3213E83FA8681D30");
+            entity.HasKey(e => e.Id).HasName("PK__Clientes__3213E83FAC0421C1");
 
-            entity.HasIndex(e => e.Telefono, "UQ__Clientes__2A16D9450C9F98E7").IsUnique();
+            entity.HasIndex(e => e.Telefono, "UQ__Clientes__2A16D945700775BD").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Nombre)
@@ -84,7 +86,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Compra>(entity =>
         {
-            entity.HasKey(e => e.IdCompra).HasName("PK__Compra__C4BAA60431EC682A");
+            entity.HasKey(e => e.IdCompra).HasName("PK__Compra__C4BAA604422F21CE");
 
             entity.ToTable("Compra");
 
@@ -115,7 +117,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Condicione>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Condicio__3213E83F100C0B0C");
+            entity.HasKey(e => e.Id).HasName("PK__Condicio__3213E83F33485F8F");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AireAc).HasColumnName("aire_ac");
@@ -146,7 +148,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Contabilidad>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Contabil__3213E83FA506E28A");
+            entity.HasKey(e => e.Id).HasName("PK__Contabil__3213E83FED5CC22A");
 
             entity.ToTable("Contabilidad");
 
@@ -173,7 +175,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<DetalleCompra>(entity =>
         {
-            entity.HasKey(e => e.IdDetalleCompra).HasName("PK__Detalle___BD16E279D4D082DC");
+            entity.HasKey(e => e.IdDetalleCompra).HasName("PK__Detalle___BD16E2794D8F770A");
 
             entity.ToTable("Detalle_Compra");
 
@@ -209,7 +211,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<DetalleVentum>(entity =>
         {
-            entity.HasKey(e => e.IdDetalle).HasName("PK__Detalle___4F1332DE528AE0AD");
+            entity.HasKey(e => e.IdDetalle).HasName("PK__Detalle___4F1332DE723AA80E");
 
             entity.ToTable("Detalle_Venta");
 
@@ -244,7 +246,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Documento>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Document__3213E83FAC59949D");
+            entity.HasKey(e => e.Id).HasName("PK__Document__3213E83F8EDB5C70");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Alarma).HasColumnName("alarma");
@@ -255,7 +257,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Ga>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Gas__3213E83FBFF1AEC3");
+            entity.HasKey(e => e.Id).HasName("PK__Gas__3213E83F7B7C5D09");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Nombre)
@@ -266,7 +268,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Producto__3213E83FD8114467");
+            entity.HasKey(e => e.Id).HasName("PK__Producto__3213E83FE7ECBC35");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Cantidad).HasColumnName("cantidad");
@@ -288,7 +290,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Proveedore>(entity =>
         {
-            entity.HasKey(e => e.IdProveedor).HasName("PK__Proveedo__8D3DFE280E0E8F0C");
+            entity.HasKey(e => e.IdProveedor).HasName("PK__Proveedo__8D3DFE2875784096");
 
             entity.Property(e => e.IdProveedor).HasColumnName("id_proveedor");
             entity.Property(e => e.CodigoProveedor)
@@ -315,7 +317,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Servicio>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Servicio__3213E83F54B859CC");
+            entity.HasKey(e => e.Id).HasName("PK__Servicio__3213E83F069CC912");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CargoEn)
@@ -331,8 +333,14 @@ public partial class DbTalleresContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("encargado_vehi");
             entity.Property(e => e.Estado).HasColumnName("estado");
-            entity.Property(e => e.FechaIn).HasColumnName("fecha_in");
-            entity.Property(e => e.FechaOut).HasColumnName("fecha_out");
+            entity.Property(e => e.FechaIn)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("fecha_in");
+            entity.Property(e => e.FechaOut)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("fecha_out");
             entity.Property(e => e.GasRecibido)
                 .HasMaxLength(3)
                 .IsUnicode(false)
@@ -346,9 +354,7 @@ public partial class DbTalleresContext : DbContext
                 .HasColumnName("mecanico");
             entity.Property(e => e.MilIn).HasColumnName("mil_in");
             entity.Property(e => e.MilOut).HasColumnName("mil_out");
-            entity.Property(e => e.Pintura)
-                .HasColumnType("image")
-                .HasColumnName("pintura");
+            entity.Property(e => e.Pintura).HasColumnName("pintura");
             entity.Property(e => e.Receptor)
                 .HasMaxLength(75)
                 .IsUnicode(false)
@@ -361,9 +367,9 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__4E3E04ADA1CF1258");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__4E3E04ADEDE87026");
 
-            entity.HasIndex(e => e.Codigo, "UQ__Usuarios__40F9A20646E3612B").IsUnique();
+            entity.HasIndex(e => e.Codigo, "UQ__Usuarios__40F9A2066D2278B1").IsUnique();
 
             entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
             entity.Property(e => e.Apellido)
@@ -395,9 +401,9 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Vehiculo>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Vehiculo__3213E83F53B00B56");
+            entity.HasKey(e => e.Id).HasName("PK__Vehiculo__3213E83F024AAA5E");
 
-            entity.HasIndex(e => e.Placa, "UQ__Vehiculo__0C0574256F2EAFC1").IsUnique();
+            entity.HasIndex(e => e.Placa, "UQ__Vehiculo__0C05742598B77EDC").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Año).HasColumnName("año");
@@ -445,7 +451,7 @@ public partial class DbTalleresContext : DbContext
 
         modelBuilder.Entity<Ventum>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("PK__Venta__459533BF79FAE3A6");
+            entity.HasKey(e => e.IdVenta).HasName("PK__Venta__459533BF5B2FA7DF");
 
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
             entity.Property(e => e.Descuento).HasColumnName("descuento");
@@ -486,7 +492,7 @@ public partial class DbTalleresContext : DbContext
         var nombre = new SqlParameter("@nombre", name);
         var tel = new SqlParameter("@telefono", telefono);
 
-        await Database.ExecuteSqlRawAsync("EXEC SP_InsertClient @nombre, @telefono", nombre,tel);
+        await Database.ExecuteSqlRawAsync("EXEC SP_InsertClient @nombre, @telefono", nombre, tel);
     }
 
     public async Task VehiculoSP(int llaves, int tarjeta, int poliza, int alarma, string placa, string marca, string modelo,
@@ -536,9 +542,187 @@ public partial class DbTalleresContext : DbContext
             "@modelo, @color, @año, @tipo,@idGas, @telefono, @radio , @mascara_radio, @perilla_cal, @aire_ac," +
             "@cont_alar, @pito, @esp_int, @esp_ext, @antena, @tapa_llanta, @emblema_lat,@emblema_post, @gato,@llave_rueda," +
             "@herramientas,@kit_carretera,@tapa_gas,@encendedor,@tapa_liq_frenos,@tapa_fusibles,@alfombras," +
-            "@llanta_emergencia,@copa_llantas,@cable_corriente",Llaves,Tarjeta,Poliza,Alarma,Placa,Marca,Modelo,Color,Año,
-            Tipo,IdGas,Telefono,Radio,MascRadio,Perilla,Ac,ContAl,Pito,EspInt,EspExt,Antena,TapaLlanta,EmbLat,EmbPost,
-            Gato,LlaveRueda,Herramientas,KitCarretera,TapaGas,Encendedor,Tapafrenos,TapaFus,Alfombras,LlantaEmer,CopaLlantas,
+            "@llanta_emergencia,@copa_llantas,@cable_corriente", Llaves, Tarjeta, Poliza, Alarma, Placa, Marca, Modelo, Color, Año,
+            Tipo, IdGas, Telefono, Radio, MascRadio, Perilla, Ac, ContAl, Pito, EspInt, EspExt, Antena, TapaLlanta, EmbLat, EmbPost,
+            Gato, LlaveRueda, Herramientas, KitCarretera, TapaGas, Encendedor, Tapafrenos, TapaFus, Alfombras, LlantaEmer, CopaLlantas,
             CableCorr);
+    }
+
+    public async Task ServiciosSP(string gasRec, int distIn, string tipoDis, string imagen, string receptor,
+        string mecanico, string encargado, string cargo, string comentarios, string placa)
+    {
+        try
+        {
+            var GasRec = new SqlParameter("@gas_rec", gasRec);
+            var DistIn = new SqlParameter("@distan_in", distIn);
+            var TipoDis = new SqlParameter("@tipo_dis", tipoDis);
+            var Imagen = new SqlParameter("@pintura", imagen);
+            var Receptor = new SqlParameter("@receptor", receptor);
+            var Mecanico = new SqlParameter("@mecanico", mecanico);
+            var Encargado = new SqlParameter("@encargado_vehi", encargado);
+            var Cargo = new SqlParameter("@cargo_en", cargo);
+            var Comentarios = new SqlParameter("@comentarios", comentarios);
+            var Placa = new SqlParameter("@placa", placa);
+
+            await Database.ExecuteSqlRawAsync("EXEC SP_InsertService @gas_rec, @distan_in, @tipo_dis,@pintura,@receptor," +
+                "@mecanico,@encargado_vehi,@cargo_en,@comentarios,@placa", GasRec, DistIn, TipoDis, Imagen, Receptor, Mecanico, Encargado,
+                Cargo, Comentarios,Placa);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+        finally
+        {
+
+        }
+
+    }
+
+    public List<IndexServiceViewModel> IndexSelect()
+    {
+        var IndexViewModel = new List<IndexServiceViewModel>();
+
+        var info = Database.GetDbConnection();
+        using(SqlConnection con = new SqlConnection(info.ConnectionString))
+        {
+            using (SqlCommand command = new SqlCommand("SP_IndexService", con))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                con.Open();
+                using (SqlDataReader sr = command.ExecuteReader())
+                {
+                    while (sr.Read())
+                    {
+                        var viewModel = new IndexServiceViewModel
+                        {
+                            ID_Servicio = Convert.ToInt32(sr["ID"]),
+                            NombreCliente = sr["Nombre"].ToString(),
+                            Vehiculo = sr["Vehiculo"].ToString(),
+                            Placa = sr["Placa"].ToString(),
+                            FechaIn = sr["Checkin"].ToString()
+                        };
+                        IndexViewModel.Add(viewModel);
+                    }
+                }
+                con.Close();
+            }
+        }
+
+        return IndexViewModel;
+    }
+
+    public ServiciosViewModel SP_SelectAllService(int id)
+    {
+        var model = new ServiciosViewModel();
+        int millaje = 0;
+        using (SqlConnection con = new SqlConnection(Database.GetConnectionString()))
+        {
+            using (SqlCommand command = new SqlCommand("SP_SelectAllService",con))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@idServicio", id));
+
+                con.Open();
+
+                using (SqlDataReader sr = command.ExecuteReader())
+                {
+                    while (sr.Read())
+                    {
+                        if(!DBNull.Value.Equals(sr["km_in"]))
+                        {
+                            millaje = Convert.ToInt32(sr["km_in"]);
+                        }
+                        else if (!DBNull.Value.Equals(sr["mil_in"]))
+                        {
+                            millaje = Convert.ToInt32(sr["mil_in"]);
+                        }
+                        var llenado = new ServiciosViewModel
+                        {
+                            Action = "Finalizar",
+                            //Datos del cliente
+                            Nombre = sr["nombre"].ToString(),
+                            Celular = sr["telefono"].ToString(),                            
+                            Cargo = sr["cargo_en"].ToString(),
+                            Encargado = sr["encargado_vehi"].ToString(),
+                            //Datos del servicio
+                            Receptor = sr["receptor"].ToString(),
+                            Mecanico = sr["mecanico"].ToString(),
+                            CantGas = sr["gas_recibido"].ToString(),
+                            KilIn = millaje,
+                            Comentarios = sr["comentarios"].ToString(),
+                            Imagen = sr["pintura"].ToString(),
+                            //Datos del vehiculo
+                            Placa = sr["placa"].ToString(),
+                            Marca = sr["marca"].ToString(),
+                            Modelo = sr["modelo"].ToString(),
+                            Color = sr["color"].ToString(),
+                            Año = Convert.ToInt32(sr["año"]),
+                            Tipo = sr["tipo"].ToString(),
+                            Combustible = Convert.ToInt32(sr["id_gas"]),
+                            Llaves = Convert.ToInt32(sr["llave"]),
+                            Tarjeta = Convert.ToInt32(sr["tarjeta"]),
+                            Poliza = Convert.ToInt32(sr["poliza"]),
+                            Control_Alarma = Convert.ToInt32(sr["alarma"]),
+                            Radio = Convert.ToInt32(sr["radio"]),
+                            MascRad = Convert.ToInt32(sr["mascara_radio"]),
+                            PerillaCal = Convert.ToInt32(sr["perilla_cal"]),
+                            AC = Convert.ToInt32(sr["aire_ac"]),
+                            ControlAlarma = Convert.ToInt32(sr["cont_alar"]),
+                            Pito = Convert.ToInt32(sr["pito"]),
+                            EspejoIn = Convert.ToInt32(sr["esp_int"]),
+                            EspejoExt = Convert.ToInt32(sr["esp_ext"]),
+                            Antena = Convert.ToInt32(sr["antena"]),
+                            TapaLlanta = Convert.ToInt32(sr["tapa_llanta"]),
+                            EmbLat = Convert.ToInt32(sr["emblema_lat"]),
+                            EmbPost = Convert.ToInt32(sr["emblema_post"]),
+                            Gato = Convert.ToInt32(sr["gato"]),
+                            LlaveRuedas = Convert.ToInt32(sr["llave_rueda"]),
+                            Herramientas = Convert.ToInt32(sr["herramientas"]),
+                            KitCarretera = Convert.ToInt32(sr["kit_carretera"]),
+                            TapaGas = Convert.ToInt32(sr["tapa_gas"]),
+                            Encendedor = Convert.ToInt32(sr["encendedor"]),
+                            TapaLiqFrenos = Convert.ToInt32(sr["tapa_liq_frenos"]),
+                            TapaFusibles = Convert.ToInt32(sr["tapa_fusibles"]),
+                            Alfombras = Convert.ToInt32(sr["alfombras"]),
+                            LlantaEmergencia = Convert.ToInt32(sr["llanta_emergencia"]),
+                            CopaLlanta = Convert.ToInt32(sr["copa_llantas"]),
+                            CableCorriente = Convert.ToInt32(sr["cable_corriente"])
+                        };
+
+                        model = llenado;
+                    }
+                }
+            }
+        }
+        return model;
+    }
+
+    public async Task SP_FinalService(int llaves, int tarjeta, int poliza, int alarma, string placa, string marca, string modelo,
+        string color, int año, string tipo, int idGas, string telefono, int radio, int mascrad, int perilla, int ac,
+        int contAl, int pito, int espInt, int espExt, int antena, int tapaLlanta, int emblemaLat, int emblemaPost,
+        int gato, int llaverueda, int herramientas, int kitCarretera, int tapagas, int encen, int TapaFrenos, int Tapafus,
+        int alfombras, int llantaEmer, int copaLlantas, int pasacorrientes,int distOut)
+    {
+        try
+        {
+           await VehiculoSP(llaves,tarjeta,poliza,alarma,placa,marca,modelo,color,año,tipo,idGas,telefono,radio,mascrad,
+                perilla,ac,contAl,pito,espInt,espExt,antena,tapaLlanta,emblemaLat,emblemaPost,gato,llaverueda,
+                herramientas,kitCarretera,tapagas,encen,TapaFrenos,Tapafus,alfombras,llantaEmer,copaLlantas,pasacorrientes);
+            var Placa = new SqlParameter("@placa", placa);
+            var DistOut = new SqlParameter("@distan_out", distOut);
+
+            await Database.ExecuteSqlRawAsync("EXEC SP_FinaleService @placa, @distan_out", Placa, DistOut);
+        }
+        catch(Exception ex)
+        {
+
+        }
+        finally
+        {
+
+        }
     }
 }

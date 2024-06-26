@@ -4,18 +4,23 @@ namespace WF_App.Models.ViewModels
 {
     public class ServiciosViewModel
     {
-        public List<Ga> Gas { get; set; }
+        public string? Action {  get; set; }
         //Datos de quien entrega
         [Required]
         public string Nombre { get; set; }
         [Required]
+        [MaxLength(9)]
+        [MinLength(8)]
         public string Celular { get; set; }
-        public string Cargo { get; set; }
-        [Required]
-        public string Encargado { get; set; }
+        [MaxLength(50)]
+        public string? Cargo { get; set; }
+        [MaxLength(75)]
+        public string? Encargado { get; set; }
 
         //Vehiculo
         [Required]
+        [MaxLength(6)]
+        [MinLength(6)]
         public string Placa { get; set; }
         [Required]
         public string Marca { get; set; }
@@ -49,17 +54,18 @@ namespace WF_App.Models.ViewModels
         [Display(Name ="Combustible")]
         public string CantGas { get; set; }
         [Required]
+        [MaxLength(75)]
         public string Mecanico { get; set; }
-        [Required]
-        [Display(Name ="Fecha de ingreso")]
-        public string FechaIn { get; set; }
-        public string FechaOut { get; set; }
         [Required]
         public string Distancia { get; set; }
         [Required]
-        public string KilIn { get; set; }
-        [Required]
-        public string KilOut { get; set; }
+        [Display(Name ="Kilometraje de ingreso")]
+        public int KilIn { get; set; }
+        [Display(Name = "Kilometraje de salida")]
+        public int? KilOut { get; set; }
+        [MaxLength(500)]
+        public string? Comentarios { get; set; }
+        public string? Imagen { get; set; }
 
         //Condiciones de entrega
 

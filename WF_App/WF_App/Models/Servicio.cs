@@ -13,19 +13,19 @@ public partial class Servicio
 
     public bool Estado { get; set; }
 
-    public DateOnly FechaIn { get; set; }
+    public string? FechaIn { get; set; }
 
-    public double? KmIn { get; set; }
+    public int? KmIn { get; set; }
 
-    public double? MilIn { get; set; }
+    public int? MilIn { get; set; }
 
-    public DateOnly? FechaOut { get; set; }
+    public string? FechaOut { get; set; }
 
-    public double? KmOut { get; set; }
+    public int? KmOut { get; set; }
 
-    public double? MilOut { get; set; }
+    public int? MilOut { get; set; }
 
-    public byte[] Pintura { get; set; } = null!;
+    public string? Pintura { get; set; }
 
     public string Receptor { get; set; } = null!;
 

@@ -1,21 +1,22 @@
 CREATE PROCEDURE SP_InsertService
-@gas_rec varchar(3), @estado bit, @fecha_in date, @distan_in float, @distan_out float, @tipo_dis varchar(3), @fecha_out date,
-@pintura image,@receptor varchar(75),@mecanico varchar(75),@encargado_vehi varchar(75),@cargo_en varchar(50),@comentarios varchar(500)
+@gas_rec varchar(3), @distan_in int, @tipo_dis varchar(3),@pintura nvarchar(max),@receptor varchar(75),@mecanico varchar(75),
+@encargado_vehi varchar(75),@cargo_en varchar(50),@comentarios varchar(500), @placa nchar(9)
 AS
 BEGIN
-DECLARE @idVehiculo int
+DECLARE @idVehiculo int, @fecha_in varchar(10)
 	BEGIN TRY
 		BEGIN TRANSACTION
-			SET @idVehiculo = (SELECT IDENT_CURRENT('Vehiculos'))
-			IF(@tipo_dis = 'km')
+			SET @idVehiculo = (SELECT id FROM Vehiculos WHERE placa = @placa)
+			SET @fecha_in = (SELECT CONVERT(VARCHAR(10), GETDATE(), 103))
+			IF(@tipo_dis = 'Kilometros')
 				BEGIN
-					INSERT INTO Servicios(id_vehiculo,gas_recibido,estado,fecha_in,km_in,fecha_out,km_out,pintura,receptor,mecanico,encargado_vehi,cargo_en,comentarios)
-					VALUES(@idVehiculo,@gas_rec,@estado,@fecha_in,@distan_in,@fecha_out,@distan_out,@pintura,@receptor,@mecanico,@encargado_vehi,@cargo_en,@comentarios)
+					INSERT INTO Servicios(id_vehiculo,gas_recibido,estado,fecha_in,km_in,fecha_out,pintura,receptor,mecanico,encargado_vehi,cargo_en,comentarios)
+					VALUES(@idVehiculo,@gas_rec,1,@fecha_in,@distan_in,@fecha_in,@pintura,@receptor,@mecanico,@encargado_vehi,@cargo_en,@comentarios)
 				END
 			ELSE
 				BEGIN
-					INSERT INTO Servicios(id_vehiculo,gas_recibido,estado,fecha_in,mil_in,fecha_out,mil_out,pintura,receptor,mecanico,encargado_vehi,cargo_en,comentarios)
-					VALUES(@idVehiculo,@gas_rec,@estado,@fecha_in,@distan_in,@fecha_out,@distan_out,@pintura,@receptor,@mecanico,@encargado_vehi,@cargo_en,@comentarios)
+					INSERT INTO Servicios(id_vehiculo,gas_recibido,estado,fecha_in,mil_in,fecha_out,pintura,receptor,mecanico,encargado_vehi,cargo_en,comentarios)
+					VALUES(@idVehiculo,@gas_rec,1,@fecha_in,@distan_in,@fecha_in,@pintura,@receptor,@mecanico,@encargado_vehi,@cargo_en,@comentarios)
 				END
 		COMMIT TRANSACTION
 	END TRY
@@ -28,3 +29,4 @@ DECLARE @idVehiculo int
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
 	END CATCH
 END
+SELECT*FROM Servicios

@@ -15,7 +15,7 @@ public partial class Vehiculo
 
     public string Color { get; set; } = null!;
 
-    public byte Año { get; set; }
+    public int Año { get; set; }
 
     public string Tipo { get; set; } = null!;
 

@@ -1,6 +1,6 @@
 CREATE PROCEDURE SP_InsertVehiculo
 @llaves bit, @tarjeta bit, @poliza bit, @alarma bit, @placa nchar(9), @marca varchar(50), @modelo varchar(50), @color varchar(25),
-@año tinyint, @tipo varchar(20), @idGas int, @telefono varchar(9), @radio bit, @mascara_radio bit, @perilla_cal bit, @aire_ac bit,
+@año int, @tipo varchar(20), @idGas int, @telefono varchar(9), @radio bit, @mascara_radio bit, @perilla_cal bit, @aire_ac bit,
 @cont_alar bit, @pito bit, @esp_int bit, @esp_ext bit, @antena bit, @tapa_llanta bit, @emblema_lat bit, @emblema_post bit, @gato bit,
 @llave_rueda bit,@herramientas bit,@kit_carretera bit,@tapa_gas bit,@encendedor bit,@tapa_liq_frenos bit,@tapa_fusibles bit,@alfombras bit,
 @llanta_emergencia bit,@copa_llantas bit,@cable_corriente bit
@@ -9,7 +9,7 @@ DECLARE @idCliente int, @idDocs int, @idCon int
 BEGIN
 	BEGIN TRY
 		BEGIN TRANSACTION;
-		IF NOT EXISTS(SELECT*FROM Vehiculos WHERE placa=@placa)
+		IF NOT EXISTS(SELECT 1 FROM Vehiculos WHERE placa=@placa)
 		BEGIN
 			SET @idCliente = (SELECT id FROM Clientes WHERE telefono=@telefono)
 			INSERT INTO Documentos(llave,tarjeta,poliza,alarma) VALUES(@llaves,@tarjeta,@poliza,@alarma)
@@ -24,7 +24,6 @@ BEGIN
 		END
 		ELSE
 		BEGIN
-
 			SELECT @idDocs = id_docs, @idCon = id_con FROM Vehiculos WHERE placa = @placa
 
 			UPDATE Documentos SET llave=@llaves,tarjeta=@tarjeta,poliza=@poliza,alarma=@alarma WHERE id=@idDocs
@@ -34,6 +33,8 @@ BEGIN
 			llave_rueda=@llave_rueda,herramientas=@herramientas,kit_carretera=@kit_carretera,tapa_gas=@tapa_gas,encendedor=@encendedor,tapa_liq_frenos=@tapa_liq_frenos,
 			tapa_fusibles=@tapa_fusibles,alfombras=@alfombras,llanta_emergencia=@llanta_emergencia,copa_llantas=@copa_llantas,cable_corriente=@cable_corriente
 			WHERE id = @idCon
+
+			UPDATE Vehiculos SET modelo=@modelo,marca=@marca,color=@color,año=@año,tipo=@tipo,id_gas=@idGas,id_docs=@idDocs,id_con=@idCon WHERE placa=@placa
 		END
 
 	COMMIT TRANSACTION
@@ -47,3 +48,5 @@ BEGIN
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH;
 END
+
+SELECT*FROM Vehiculos

@@ -1,11 +1,15 @@
-﻿@{
+﻿@using WF_App.Models.ViewModels
+@{
     ViewData["Title"] = "Servicios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model List<IndexServiceViewModel>
 <div class="row">
-    <div class="col-sm-4">
-    <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-plus" style="margin-right:5px;"></i>Nuevo Servicio</button>
-    </div>
+    <form asp-action="Create">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-plus" style="margin-right:5px;"></i> Nuevo Servicio</button>
+        </div>
+    </form>
     <div class="col-sm">
         <button type="submit" class="btn-serv btn-light btn" style="color:black;margin:5px;"><i class="fa-solid fa-filter" style="margin-right:5px; color:deepskyblue"></i>Filtrar</button>
     </div>
@@ -15,28 +19,30 @@
     <table class="table table-bordered" style="align-items:center">
         <thead>
             <tr>
-                <th colspan="2" >Opciones</th>
+                <th colspan="1" >Opciones</th>
                 <th>Cliente</th>
                 <th>Vehiculo</th>
                 <th>Placa</th>
-                <th>Servicio</th>
                 <th>Check in</th>
             </tr>
         </thead>
         <tbody style="align-items:center">
-            <tr>
-                <td>                  
-                  <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash" style="margin:1px;"></i></button>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square" style="margin:1px;"></i></button>
-                </td>
-                <td>pa</td>
-                <td>pa</td>
-                <td>pa</td>
-                <td>pa</td>
-                <td>pa</td>
-            </tr>
+            <form asp-action="Create">
+                @foreach (var servicio in Model)
+                {
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-primary" value="Finalizar" onclick="SubmitValue(@servicio.ID_Servicio)"><i class="fa-solid fa-pen-to-square" style="margin:1px;"></i>Finalizar Servicio</button>
+                    </td>
+
+                    <td>@Html.DisplayFor(m => servicio.NombreCliente)</td>
+                    <td>@Html.DisplayFor(m => servicio.Vehiculo)</td>
+                    <td>@Html.DisplayFor(m => servicio.Placa)</td>
+                    <td>@Html.DisplayFor(m => servicio.FechaIn)</td>
+                </tr>
+                }
+            <input type="hidden" name="serviceId" id="serviceId" />
+            </form>           
         </tbody>
     </table>
 </div>
