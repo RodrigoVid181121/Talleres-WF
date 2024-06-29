@@ -4,6 +4,7 @@ namespace WF_App.Models.ViewModels
 {
     public class ServiciosViewModel
     {
+        //salvando proyecto
         //Datos de quien entrega
         [Required]
         public string Nombre { get; set; }

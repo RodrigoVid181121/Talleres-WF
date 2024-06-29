@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\models\\viewmodels\\serviciosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\models\\viewmodels\\serviciosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\views\\servicios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\views\\servicios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\models\\viewmodels\\serviciosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\models\\viewmodels\\serviciosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductosController .cs",
               "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProductosController .cs",
               "RelativeDocumentMoniker": "WF_App\\Controllers\\ProductosController .cs",
@@ -42,37 +42,37 @@
               "RelativeToolTip": "WF_App\\Controllers\\ProductosController .cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:31:24.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-21T22:31:24.772Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProveedoresController.cs",
               "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProveedoresController.cs",
               "RelativeDocumentMoniker": "WF_App\\Controllers\\ProveedoresController.cs",
               "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProveedoresController.cs",
               "RelativeToolTip": "WF_App\\Controllers\\ProveedoresController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBUAAAAJAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T22:30:12.984Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ServiciosViewModel.cs",
               "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
               "RelativeDocumentMoniker": "WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
               "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
               "RelativeToolTip": "WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T19:29:31.466Z"
+              "WhenOpened": "2024-06-04T19:29:31.466Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Servicios\\Create.cshtml",
               "RelativeDocumentMoniker": "WF_App\\Views\\Servicios\\Create.cshtml",
@@ -80,8 +80,7 @@
               "RelativeToolTip": "WF_App\\Views\\Servicios\\Create.cshtml",
               "ViewState": "AQIAAMMAAAAAAAAAAAAUwM8AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-04T18:56:31.134Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-04T18:56:31.134Z"
             },
             {
               "$type": "Document",
