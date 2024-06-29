@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\controllers\\productoscontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\controllers\\productoscontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\views\\servicios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\views\\servicios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\models\\dbtallerescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\models\\dbtallerescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\models\\viewmodels\\serviciosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +13,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\views\\servicios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\views\\servicios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\views\\servicios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\views\\servicios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,70 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductosController .cs",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProductosController .cs",
-              "RelativeDocumentMoniker": "WF_App\\Controllers\\ProductosController .cs",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProductosController .cs",
-              "RelativeToolTip": "WF_App\\Controllers\\ProductosController .cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:31:24.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProveedoresController.cs",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProveedoresController.cs",
-              "RelativeDocumentMoniker": "WF_App\\Controllers\\ProveedoresController.cs",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ProveedoresController.cs",
-              "RelativeToolTip": "WF_App\\Controllers\\ProveedoresController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBUAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:30:12.984Z",
-              "EditorCaption": ""
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Servicios\\Index.cshtml",
+              "RelativeDocumentMoniker": "WF_App\\Views\\Servicios\\Index.cshtml",
+              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Servicios\\Index.cshtml",
+              "RelativeToolTip": "WF_App\\Views\\Servicios\\Index.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-26T01:51:47.426Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ServiciosViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
-              "RelativeDocumentMoniker": "WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
-              "RelativeToolTip": "WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T19:29:31.466Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Servicios\\Create.cshtml",
               "RelativeDocumentMoniker": "WF_App\\Views\\Servicios\\Create.cshtml",
               "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Servicios\\Create.cshtml",
               "RelativeToolTip": "WF_App\\Views\\Servicios\\Create.cshtml",
-              "ViewState": "AQIAAMMAAAAAAAAAAAAUwM8AAAAaAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACgAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-04T18:56:31.134Z",
+              "WhenOpened": "2024-06-26T00:04:03.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DbTalleresContext.cs",
+              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\DbTalleresContext.cs",
+              "RelativeDocumentMoniker": "WF_App\\Models\\DbTalleresContext.cs",
+              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\DbTalleresContext.cs",
+              "RelativeToolTip": "WF_App\\Models\\DbTalleresContext.cs",
+              "ViewState": "AQIAAOcBAAAAAAAAAIAwwOsBAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T21:11:14.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServiciosViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
+              "RelativeDocumentMoniker": "WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
+              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
+              "RelativeToolTip": "WF_App\\Models\\ViewModels\\ServiciosViewModel.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAwwBYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T04:23:16.485Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "WF_App\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "WF_App\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwCkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-24T23:54:04.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ServiciosController.cs",
               "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ServiciosController.cs",
               "RelativeDocumentMoniker": "WF_App\\Controllers\\ServiciosController.cs",
               "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\ServiciosController.cs",
               "RelativeToolTip": "WF_App\\Controllers\\ServiciosController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwBoAAAAJAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAIA1wE8AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T20:49:38.04Z"
+              "WhenOpened": "2024-06-02T20:49:38.04Z",
+              "EditorCaption": ""
             }
           ]
         }
