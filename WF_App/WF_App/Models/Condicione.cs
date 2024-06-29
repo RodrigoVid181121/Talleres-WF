@@ -55,5 +55,5 @@ public partial class Condicione
 
     public bool CableCorriente { get; set; }
 
-    public virtual ICollection<Servicio> Servicios { get; set; } = new List<Servicio>();
+    public virtual ICollection<Vehiculo> Vehiculos { get; set; } = new List<Vehiculo>();
 }

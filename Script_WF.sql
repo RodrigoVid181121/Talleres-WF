@@ -11,7 +11,7 @@ CREATE TABLE Usuarios(
 id_usuario int PRIMARY KEY IDENTITY,
 nombre varchar(20) not null,
 apellido varchar(20) not null,
-codigo nchar(6) not null,
+codigo nchar(6) not null UNIQUE,
 contraseña varchar(50),
 id_cargo int FOREIGN KEY REFERENCES cargos(id_cargo) ON UPDATE CASCADE ON DELETE CASCADE,
 salario decimal(5,2) not null
@@ -31,10 +31,12 @@ id int PRIMARY KEY IDENTITY,
 nombre varchar(20)
 )
 
+INSERT INTO Gas(nombre) VALUES ('Diesel'),('Gasolina')
+
 CREATE TABLE Clientes(
 id int PRIMARY KEY IDENTITY,
 nombre varchar(75),
-telefono varchar(9)
+telefono varchar(9) UNIQUE
 )
 
 CREATE TABLE Documentos(
@@ -43,19 +45,6 @@ llave bit not null,
 tarjeta bit not null,
 poliza bit not null,
 alarma bit not null
-)
-
-CREATE TABLE Vehiculos(
-id int PRIMARY KEY IDENTITY,
-placa nchar(9) not null,
-modelo varchar(50) not null,
-marca varchar(50) not null,
-color varchar(25) not null,
-año tinyint not null,
-tipo varchar(20) not null,
-id_gas int FOREIGN KEY REFERENCES Gas(id),
-id_cliente int FOREIGN KEY REFERENCES Clientes(id),
-id_docs int FOREIGN KEY REFERENCES Documentos(id),
 )
 
 CREATE TABLE Condiciones(
@@ -85,26 +74,37 @@ llanta_emergencia bit not null,
 copa_llantas bit not null,
 cable_corriente bit not null,
 )
+
+CREATE TABLE Vehiculos(
+id int PRIMARY KEY IDENTITY,
+placa nchar(9) not null UNIQUE,
+modelo varchar(50) not null,
+marca varchar(50) not null,
+color varchar(25) not null,
+año int not null,
+tipo varchar(20) not null,
+id_gas int FOREIGN KEY REFERENCES Gas(id),
+id_cliente int FOREIGN KEY REFERENCES Clientes(id),
+id_docs int FOREIGN KEY REFERENCES Documentos(id),
+id_con int FOREIGN KEY REFERENCES Condiciones(id),
+)
 --El estado 1 es activo 0 es finalizado
 CREATE TABLE Servicios(
 id int IDENTITY PRIMARY KEY,
 id_vehiculo int FOREIGN KEY REFERENCES Vehiculos(id),
-id_cliente int FOREIGN KEY REFERENCES Clientes(id),
-id_docs int FOREIGN KEY REFERENCES Documentos(id),
 gas_recibido varchar(3) not null,
 estado bit not null,
-fecha_in date not null,
-km_in float,
-mil_in float,
-fecha_out date,
-km_out float,
-mil_out float,
-pintura image not null,
+fecha_in varchar(10) not null,
+km_in int,
+mil_in int,
+fecha_out varchar(10),
+km_out int,
+mil_out int,
+pintura nvarchar(MAX) not null,
 receptor varchar(75) not null,
 mecanico varchar(75) not null,
 encargado_vehi varchar(75),
 cargo_en varchar(50),
-id_con int FOREIGN KEY REFERENCES Condiciones(id),
 comentarios varchar(500) 
 )
 

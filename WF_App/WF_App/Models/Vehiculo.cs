@@ -15,7 +15,7 @@ public partial class Vehiculo
 
     public string Color { get; set; } = null!;
 
-    public byte Año { get; set; }
+    public int Año { get; set; }
 
     public string Tipo { get; set; } = null!;
 
@@ -25,9 +25,11 @@ public partial class Vehiculo
 
     public int? IdDocs { get; set; }
 
-    public string? Receptor { get; set; }
+    public int? IdCon { get; set; }
 
     public virtual Cliente? IdClienteNavigation { get; set; }
+
+    public virtual Condicione? IdConNavigation { get; set; }
 
     public virtual Documento? IdDocsNavigation { get; set; }
 
