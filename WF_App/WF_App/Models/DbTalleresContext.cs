@@ -487,10 +487,10 @@ public partial class DbTalleresContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-    public async Task InsertClientSP(string name, string telefono)
+    public async Task InsertClientSP(ServiciosViewModel model)
     {
-        var nombre = new SqlParameter("@nombre", name);
-        var tel = new SqlParameter("@telefono", telefono);
+        var nombre = new SqlParameter("@nombre", model.Nombre);
+        var tel = new SqlParameter("@telefono", model.Celular);
 
         await Database.ExecuteSqlRawAsync("EXEC SP_InsertClient @nombre, @telefono", nombre, tel);
     }

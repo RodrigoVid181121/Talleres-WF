@@ -78,7 +78,7 @@ namespace WF_App.Controllers
                     string sub2 = model.Celular.Substring(4, 4);
                     model.Celular = sub + "-" + sub2;
                 }
-                await _context.InsertClientSP(model.Nombre, model.Celular);
+                await _context.InsertClientSP(model);
                 await _context.VehiculoSP(model.Llaves,model.Tarjeta,model.Poliza,model.Control_Alarma,
                     model.Placa,model.Marca,model.Modelo,model.Color,model.Año,model.Tipo,model.Combustible,
                     model.Celular,model.Radio,model.MascRad,model.PerillaCal,model.AC,model.ControlAlarma,model.Pito,
@@ -87,6 +87,7 @@ namespace WF_App.Controllers
                     model.TapaFusibles,model.Alfombras,model.LlantaEmergencia,model.CopaLlanta,model.CableCorriente);
                 switch (model.Distancia)
                 {
+                    //commit for nothing
                     case "Kilometros":
                         if (model.Encargado == null) model.Encargado = "";
                         if (model.Cargo == null) model.Cargo = "";
