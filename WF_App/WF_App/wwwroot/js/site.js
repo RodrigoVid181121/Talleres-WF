@@ -48,7 +48,7 @@ function SubmitValue(id) {
 
     value.value = id
 
-    setCookie("Action", "Finalizar", 60)
+    setCookie("Action", "Finalizar", 15)
 
     document.forms[1].submit()
 }

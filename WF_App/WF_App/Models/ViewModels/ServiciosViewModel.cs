@@ -20,7 +20,6 @@ namespace WF_App.Models.ViewModels
         //Vehiculo
         [Required]
         [MaxLength(6)]
-        [MinLength(6)]
         public string Placa { get; set; }
         [Required]
         public string Marca { get; set; }
