@@ -23,7 +23,7 @@ namespace WF_App.Controllers
         public IActionResult Index()
         {
             var info = _context.IndexSelect();
-           return View(info);
+            return View(info);
         }
         public IActionResult Create()
         {
@@ -38,7 +38,7 @@ namespace WF_App.Controllers
             else
             {
                 return View();
-            }           
+            }
         }
         public IActionResult Privacy()
         {
@@ -58,12 +58,12 @@ namespace WF_App.Controllers
                         return RedirectToAction(nameof(Index));
 
                     case "Finalizar":
-                       await Final(model);
+                        await Final(model);
                         return RedirectToAction(nameof(Index));
                 }
             }
             ViewData["Gas"] = new SelectList(_context.Gas, "Id", "Nombre", model.Combustible);
-            return View("Create",model);
+            return View("Create", model);
         }
         private async Task CreateService(ServiciosViewModel model)
         {
@@ -103,6 +103,22 @@ namespace WF_App.Controllers
             if (model.Imagen == null) model.Imagen = "";
 
             await _context.SP_FinalService(model, Convert.ToInt32(model.KilOut));
+        }
+        [HttpPost]
+        public IActionResult SearchPlaca(ServiciosViewModel placa)
+        {
+            if (!String.IsNullOrEmpty(placa.PlacaSearch))
+            {
+                var model = _context.SP_FillInfo(placa.PlacaSearch);
+                ViewData["Gas"] = new SelectList(_context.Gas, "Id", "Nombre");
+
+                return View("Create",model);
+            }
+            else
+            {                
+                return View("Create");
+            }
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

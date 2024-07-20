@@ -4,9 +4,12 @@ namespace WF_App.Models.ViewModels
 {
     public class ServiciosViewModel
     {
+        public string? PlacaSearch { get; set; }
+        public bool? Enviado { get; set; }
         public string? Action {  get; set; }
         //Datos de quien entrega
         [Required]
+        [Display(Name ="Nombre")]
         public string Nombre { get; set; }
         [Required]
         [MaxLength(9)]

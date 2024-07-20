@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ndAwdfgNG5DNpOK3W0Vr24Ye10YUnV+5QYdlOG7SSQx3+0TC7apr5ND+ThGG9S0NCZJiS3ormAwwbcMdQjWdEQ==",
+  "dgSpecHash": "JgdedeqTi8aFltUOuZsdcl0WF3vV+N9ZOOcg3SA+1DxOPmEPOOcTlwb1QhDTTuIJXxGDu1W3iaz/h5JEdbgh8g==",
   "success": true,
   "projectFilePath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\WF_App.csproj",
   "expectedPackageFiles": [
@@ -173,12 +173,5 @@
     "C:\\Users\\navas\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\navas\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

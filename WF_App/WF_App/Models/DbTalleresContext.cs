@@ -736,4 +736,85 @@ public partial class DbTalleresContext : DbContext
 
         }
     }
+
+    public ServiciosViewModel SP_FillInfo(string placa)
+    {
+        var model = new ServiciosViewModel();
+        try
+        {            
+            using (SqlConnection con = new SqlConnection(Database.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_FillInfo", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@placa", placa));
+
+                    con.Open();
+
+                    using (SqlDataReader sr = command.ExecuteReader())
+                    {
+                        while (sr.Read())
+                        {
+                            var llenado = new ServiciosViewModel
+                            {
+                                Action = "Create",
+                                //Datos del cliente
+                                Nombre = sr["nombre"].ToString().Trim(),
+                                Celular = sr["telefono"].ToString().Trim(),
+                                //Datos del vehiculo
+                                Placa = sr["placa"].ToString().Trim(),
+                                Marca = sr["marca"].ToString().Trim(),
+                                Modelo = sr["modelo"].ToString().Trim(),
+                                Color = sr["color"].ToString().Trim(),
+                                Año = Convert.ToInt32(sr["año"]),
+                                Tipo = sr["tipo"].ToString().Trim(),
+                                Combustible = Convert.ToInt32(sr["id_gas"]),
+                                Llaves = Convert.ToInt32(sr["llave"]),
+                                Tarjeta = Convert.ToInt32(sr["tarjeta"]),
+                                Poliza = Convert.ToInt32(sr["poliza"]),
+                                Control_Alarma = Convert.ToInt32(sr["alarma"]),
+                                Radio = Convert.ToInt32(sr["radio"]),
+                                MascRad = Convert.ToInt32(sr["mascara_radio"]),
+                                PerillaCal = Convert.ToInt32(sr["perilla_cal"]),
+                                AC = Convert.ToInt32(sr["aire_ac"]),
+                                ControlAlarma = Convert.ToInt32(sr["cont_alar"]),
+                                Pito = Convert.ToInt32(sr["pito"]),
+                                EspejoIn = Convert.ToInt32(sr["esp_int"]),
+                                EspejoExt = Convert.ToInt32(sr["esp_ext"]),
+                                Antena = Convert.ToInt32(sr["antena"]),
+                                TapaLlanta = Convert.ToInt32(sr["tapa_llanta"]),
+                                EmbLat = Convert.ToInt32(sr["emblema_lat"]),
+                                EmbPost = Convert.ToInt32(sr["emblema_post"]),
+                                Gato = Convert.ToInt32(sr["gato"]),
+                                LlaveRuedas = Convert.ToInt32(sr["llave_rueda"]),
+                                Herramientas = Convert.ToInt32(sr["herramientas"]),
+                                KitCarretera = Convert.ToInt32(sr["kit_carretera"]),
+                                TapaGas = Convert.ToInt32(sr["tapa_gas"]),
+                                Encendedor = Convert.ToInt32(sr["encendedor"]),
+                                TapaLiqFrenos = Convert.ToInt32(sr["tapa_liq_frenos"]),
+                                TapaFusibles = Convert.ToInt32(sr["tapa_fusibles"]),
+                                Alfombras = Convert.ToInt32(sr["alfombras"]),
+                                LlantaEmergencia = Convert.ToInt32(sr["llanta_emergencia"]),
+                                CopaLlanta = Convert.ToInt32(sr["copa_llantas"]),
+                                CableCorriente = Convert.ToInt32(sr["cable_corriente"])
+                            };
+
+                            model = llenado;
+                        }
+                    }
+                }
+            }
+            
+        }
+        catch(Exception e)
+        {
+
+        }
+        finally
+        {
+
+        }
+        return model;
+    }
 }
