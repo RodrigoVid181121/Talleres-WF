@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else {
             console.log('No file selected')
         }
-    })
+    })    
 
     document.getElementById("Reestablecer").addEventListener("click", function () {
         var elements = document.querySelectorAll("input[type='text']")
@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("ActionValue").value = cookie
     }
 
+    let value = document.getElementById("serviceId")
+    if (value.value.length < 0 ) {
+        value.value = 0
+    }
+
 })
 
 function SubmitValue(id) {
@@ -48,7 +53,7 @@ function SubmitValue(id) {
 
     value.value = id
 
-    setCookie("Action", "Finalizar", 60)
+    setCookie("Action", "Finalizar", 15)
 
     document.forms[1].submit()
 }
@@ -56,11 +61,11 @@ function SubmitValue(id) {
 function PutAction() {
     let action = document.getElementById("ActionValue")
 
-    if (action.value.length <= 0) {
-        action.value = "Create"
+    if (action.value.length <= 0 || action.value == "SearchPlaca") {
+        action.value = "Create"        
     }
-
-    document.forms[0].submit()
+    document.forms[1].submit()
+    
 }
 
 function setCookie(name, value, seconds) {
@@ -78,4 +83,19 @@ function getCookie(name) {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
+}
+
+function FillData() {
+    var placa = document.getElementById('PlacaSearch').value
+
+    if (placa.length <= 0) {
+        placa = 0
+        document.forms[0].submit()
+    }
+    else {
+        document.forms[0].submit()
+    }
+
+    alert(placa)
+    
 }

@@ -7,11 +7,14 @@
 @model ServiciosViewModel
 
 <div class="row">
-    <div class="input-group mb-3">
-        <h2 style="margin-right:25px;">Nuevo Servicio</h2>
-        <span class="input-group-text inp-gris" id="user-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control inp-gris" placeholder="PLACA" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
+    <form asp-action="SearchPlaca">
+        <div class="input-group mb-3">
+            <h2 style="margin-right:25px;">Nuevo Servicio</h2>
+            <span class="input-group-text inp-gris" id="user-addon1" onclick="FillData()"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="PlacaSearch" asp-for="PlacaSearch" class="form-control inp-gris" placeholder="PLACA" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
+    
 </div>
 <form asp-action="ActionMethod">
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
