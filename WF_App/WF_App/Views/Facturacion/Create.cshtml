@@ -1,54 +1,72 @@
-﻿
+﻿@using WF_App.Models.ViewModels
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model FacturacionViewModel
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="~/js/Facturacion.js"></script>
+<form asp-action="Fact" id="FormPrin">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 <div class="row">
-    <div class="col-sm">
-        <h1 style="margin-bottom:2vw;">Facturacion</h1>
-        <div class="input-group mb-3">           
-            <span class="input-group-text inp-gris in" id="dat">Nombre:</span>
-            <input id="datos" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
         <div class="input-group mb-3">
-            <span class="input-group-text inp-gris in" id="dat">Placa:</span>
-            <input type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+            <h2 style="margin-right:25px;">Buscar</h2>
+            <span class="input-group-text inp-gris" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input asp-for="Placa" type="text" id="PlacaSearch" class="form-control inp-gris" placeholder="PLACA" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text inp-gris in" id="dat">Servicio:</span>
-            <input type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text inp-gris in" id="dat">Encargado:</span>
-            <input type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text inp-gris in" id="dat">Forma de pago:</span>
-            <select id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text inp-gris in" id="dat">Productos:</span>
-            <select id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <button type="submit" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
-        </div>
-        <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Guardar</button>
-    </div>
-    <div class="col-sm-5">
-        <h3 style="margin-bottom:2vw;color:darkred;">No.12333</h3>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text fil inp-gris" id="dat">Productos:</span>
+
+        <div class="col-sm">
+            <h1 style="margin-bottom:2vw;">Facturacion</h1>
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-gris in" id="dat">Nombre:</span>
+                <input id="ClientName" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <textarea class="form-control inp-gris" aria-label="With textarea" readonly></textarea>
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-gris in" id="dat">Servicio:</span>
+                <input type="text" id="ServicioNew" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+                <button type="button" id="AddService" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-gris in" id="dat">Encargado:</span>
+                <input type="text" class="form-control inp-gris" id="EncargadoName" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-gris in" id="dat">Forma de pago:</span>
+                <select asp-for="FormaPago" id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                    <option value="Transferencia">Transferencia</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text inp-gris in" id="dat">Productos:</span>
+                <select id="Products" type="text" asp-items="ViewBag.Productos" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
+                </select>
+                <button type="button" id="AddProduct" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button type="button" id="SubmitButton" class="btn btn-success btn-serv"><i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Guardar</button>
+        </div>
+        <div class="col-sm-5">
+            <h3 style="margin-bottom:2vw;color:darkred;">No.1233</h3>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text fil inp-gris" id="dat">Productos:</span>
+                </div>
+                <textarea class="form-control inp-gris" id="ProductosArea" aria-label="With textarea" readonly></textarea>
+            </div>
+            <div></div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text fil inp-gris" id="dat">Servicios:</span>
+                </div>
+                <textarea class="form-control inp-gris" id="ServiciosArea" aria-label="With textarea" readonly></textarea>
+            </div>
+            <input type="hidden" id="cryptoSend" asp-for="Descripcion"/>
+            <input type="hidden" id="cryptoSendProducts" asp-for="Productos" />
+        </div>
+        <div class="col-sm-5">
+            <h3 style="margin-bottom:2vw;color: black">$<label id="MontoTotal">0.00</label></h3>
+            <input type="hidden" asp-for="MontoTotal" id="HiddenMonto" /> 
         </div>
     </div>
-</div>
+</form>

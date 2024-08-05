@@ -4,17 +4,25 @@ namespace WF_App.Models.ViewModels
 {
     public class ServiciosViewModel
     {
+        public string? key { get; set; }
+        public string? PlacaSearch { get; set; }
+        public string? Action {  get; set; }
         //Datos de quien entrega
         [Required]
+        [Display(Name ="Nombre")]
         public string Nombre { get; set; }
         [Required]
+        [MaxLength(9)]
+        [MinLength(8)]
         public string Celular { get; set; }
-        public string Cargo { get; set; }
-        [Required]
-        public string Encargado { get; set; }
+        [MaxLength(50)]
+        public string? Cargo { get; set; }
+        [MaxLength(75)]
+        public string? Encargado { get; set; }
 
         //Vehiculo
         [Required]
+        [MaxLength(6)]
         public string Placa { get; set; }
         [Required]
         public string Marca { get; set; }
@@ -28,7 +36,17 @@ namespace WF_App.Models.ViewModels
         public int Año { get; set; }
         [Required]
         [Display(Name ="Tipo Gas")]
-        public string Combustible { get; set; }
+        public int Combustible { get; set; }
+
+        //Documentos
+        [Required]
+        public int Llaves { get; set; }
+        [Required]
+        public int Tarjeta { get; set; }
+        [Required]
+        public int Poliza { get; set; }
+        [Required]
+        public int Control_Alarma { get; set; }
 
         //Servicio
         [Required]
@@ -38,17 +56,21 @@ namespace WF_App.Models.ViewModels
         [Display(Name ="Combustible")]
         public string CantGas { get; set; }
         [Required]
+        [MaxLength(75)]
         public string Mecanico { get; set; }
-        [Required]
-        [Display(Name ="Fecha de ingreso")]
-        public string FechaIn { get; set; }
-        public string FechaOut { get; set; }
         [Required]
         public string Distancia { get; set; }
         [Required]
-        public string KilIn { get; set; }
+        [Display(Name ="Kilometraje de ingreso")]
+        public int KilIn { get; set; }
+        [Display(Name = "Kilometraje de salida")]
+        public int? KilOut { get; set; }
+        [MaxLength(500)]
+        public string? Comentarios { get; set; }
+        public string? Imagen { get; set; }
+        [Display(Name ="Servicio")]
         [Required]
-        public string KilOut { get; set; }
+        public int? IdServicio { get; set; }
 
         //Condiciones de entrega
 

@@ -15,8 +15,6 @@ public partial class DetalleVentum
 
     public string TipoPago { get; set; } = null!;
 
-    public int? NumeroRef { get; set; }
-
     public int Cantidad { get; set; }
 
     public decimal Subtotal { get; set; }

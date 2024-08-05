@@ -5,15 +5,19 @@
 }
 
 @model ServiciosViewModel
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="~/js/Services.js"></script>
 <div class="row">
-    <div class="input-group mb-3">
-        <h2 style="margin-right:25px;">Nuevo Servicio</h2>
-        <span class="input-group-text inp-gris" id="user-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control inp-gris" placeholder="PLACA" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
+    <form asp-action="SearchPlaca">
+        <div class="input-group mb-3">
+            <h2 style="margin-right:25px;">Nuevo Servicio</h2>
+            <span class="input-group-text inp-gris" id="user-addon1" onclick="FillData()"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="PlacaSearch" asp-for="PlacaSearch" class="form-control inp-gris" placeholder="PLACA" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
+    
 </div>
-<form asp-action="Create">
+<form asp-action="ActionMethod" method="post">
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 <div class="row">
     <div class="col-sm-4">
@@ -31,34 +35,35 @@
         <div class="input-group mb-3">
             <span class="input-group-text inp-gris" id="dat">Cargo:</span>
             <input asp-for="Cargo" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
+            <span asp-validation-for="Cargo" class="text-danger"></span>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text inp-gris" id="dat">Encargado:</span>
             <input asp-for="Encargado" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
             <span asp-validation-for="Encargado" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-info btn-serv"><i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Guardar</button>
-        <button type="submit" class="btn btn-success btn-serv"><i class="fa-solid fa-rotate-right" style="margin-right:5px;"></i>Restablecer</button>
-        <button type="submit" class="btn btn-danger btn-serv"><i class="fa-solid fa-xmark" style="margin-right:5px;"></i>Cancelar</button>
-    </div>
-    <div class="col-sm">
+        <button type="button" onclick="PutAction()" class="btn btn-info btn-serv"><i class="fa-solid fa-right-to-bracket" style="margin-right:5px;"></i>Guardar</button>
+        <button type="button" id="Reestablecer" class="btn btn-success btn-serv"><i class="fa-solid fa-rotate-right" style="margin-right:5px;"></i>Restablecer</button>
+        <button type="button" class="btn btn-danger btn-serv"><i class="fa-solid fa-xmark" style="margin-right:5px;"></i>Cancelar</button>
+        <input asp-for="Action" type="hidden" id="ActionValue" />
+    </div> <!--Fin datos entrega -->
+    <div class="col-sm">      
         <div class="input-group mb-3">
             <span class="input-group-text inp-gris" id="dat">Servicio:</span>
-            <select id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select asp-for="IdServicio" asp-items="ViewBag.Services" id="servicios" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1" style="width:25vw;">
             </select>
-            <button type="submit" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
-        </div>
-        <nav>
+            <button type="button" onclick="SaveServices()" class="btn btn-success" style="margin-left:5px;"><i class="fa-solid fa-plus"></i></button>
+                <input asp-for="key" type="hidden" id="KeyValue" />
+        </div> <!--Fin combo servicio -->
+        <nav> <!-- Constructor de tabs -->
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Vehiculo</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Entrega</button>
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-vehiculo" type="button" role="tab" aria-controls="nav-vehiculo" aria-selected="true">Vehiculo</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-doc" type="button" role="tab" aria-controls="nav-doc" aria-selected="false">Documentacion</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-entrega" type="button" role="tab" aria-controls="nav-entrega" aria-selected="false">Entrega</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="tab-pane fade show active" id="nav-vehiculo" role="tabpanel" aria-labelledby="nav-vehiculo-tab">
                 <div class="row">
                 <label for="datos" style="margin:10px; font-size:medium;">Descripcion del vehiculo</label>
                 <div class="col-sm">
@@ -85,19 +90,10 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text inp-gris" id="dat">Tipo Km/Mi:</span>
                     <select asp-for="Distancia" id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-                        <option value="1">Kilometros</option>
-                        <option value="2">Millas</option>
+                        <option value="Kilometros">Kilometros</option>
+                        <option value="Millas">Millas</option>
                     </select>
-                </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text inp-gris" id="dat">Fecha:</span>
-                        <span class="input-group-text inp-gris">Ingreso</span>
-                        <input asp-for="FechaIn" id="dat1" style="margin-right:1vw;" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-                                <span asp-validation-for="FechaIn" class="text-danger"></span>
-                        <span class="input-group-text inp-gris">Salida</span>
-                        <input asp-for="FechaOut" id="dat2" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-                                <span asp-validation-for="FechaOut" class="text-danger"></span>
-                    </div>
+                </div>                    
                     <div class="input-group mb-3">
                         <span class="input-group-text inp-gris" id="dat">Km/Mi:</span>
                         <span class="input-group-text inp-gris">Ingreso</span>
@@ -107,7 +103,7 @@
                         <input asp-for="KilOut" id="dat2" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
                                 <span asp-validation-for="KilOut" class="text-danger"></span>
                     </div>
-                </div>
+                        </div>  <!--Fin colum derecha tab descr vehiculo -->
                 <div class="col-sm">
                     <div class="input-group mb-3">
                         <span class="input-group-text inp-gris" id="dat">Año:</span>
@@ -121,9 +117,7 @@
                     </div>
                     <div class="input-group mb-3">
                     <span class="input-group-text inp-gris" id="dat">Tipo Gas:</span>
-                    <select asp-for="Combustible" id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1">
-                        <option value="1">Kilometros</option>
-                        <option value="2">Millas</option>
+                    <select asp-for="Combustible" asp-items="ViewBag.Gas" id="datos" type="text" class="Custom-select inp-gris" aria-label="Username" aria-describedby="basic-addon1">
                     </select>
                     </div>
                     <div class="input-group mb-3">
@@ -141,268 +135,321 @@
                         <input asp-for="Mecanico" id="datos" type="text" class="form-control inp-gris" aria-label="Username" aria-describedby="basic-addon1">
                                 <span asp-validation-for="Mecanico" class="text-danger"></span>
                     </div>
-                </div>
-                    <div class="input-group mb-3">
+                        </div>  <!--Fin colum izq tab descr vehiculo -->
+                <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text inp-gris fil" id="dat">Estado de pintura y carroceria:</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                <input type="file" class="custom-file-input" id="inputImagen" accept="image/png, image/jpeg">
+                                <input type="hidden" asp-for="Imagen" id="ImagenID" />
                         </div>
                     </div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text fil inp-gris" id="dat">Comentarios:</span>
                         </div>
-                        <textarea class="form-control inp-gris" aria-label="With textarea"></textarea>
+                        <textarea asp-for="Comentarios" class="form-control inp-gris" aria-label="With textarea"></textarea>
+                            <span asp-validation-for="Comentarios" class="text-danger"></span>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                </div> <!--Fin tab descr vehiculo -->
+            <div class="tab-pane fade" id="nav-doc" role="tabpanel" aria-labelledby="nav-doc-tab">
+                    <span class="input-group-text inp-gris" id="dat" style="margin:10px; font-size:large;">Documentacion</span>
+                    <div class="container">
+                        <label for="radio" class="txt-rad">Llaves:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Llaves" class="form-check-input" type="radio" id="inlineradio1" value="1">
+                            <label class="form-check-label" for="inlineradio1">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Llaves" class="form-check-input" type="radio" id="inlineradio1" value="0">
+                            <label class="form-check-label" for="inlineradio1">No</label>
+                        </div>
+                        <div class="w-100"></div>
+                        <label for="radio" class="txt-rad">Tarjeta:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Tarjeta" class="form-check-input" type="radio" id="inlineradio2" value="1">
+                            <label class="form-check-label" for="inlineradio2">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Tarjeta" class="form-check-input" type="radio" id="inlineradio2" value="0">
+                            <label class="form-check-label" for="inlineradio2">No</label>
+                        </div>
+                        <div class="w-100"></div>
+                        <label for="radio" class="txt-rad">Poliza/placa:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Poliza" class="form-check-input" type="radio" id="inlineradio3" value="1">
+                            <label class="form-check-label" for="inlineradio3">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Poliza" class="form-check-input" type="radio" id="inlineradio3" value="0">
+                            <label class="form-check-label" for="inlineradio3">No</label>
+                        </div>
+                        <div class="w-100"></div>
+                        <label for="radio" class="txt-rad">Control de alarma:</label>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Control_Alarma" class="form-check-input" type="radio" id="inlineradio4" value="1">
+                            <label class="form-check-label" for="inlineradio4">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="Control_Alarma" class="form-check-input" type="radio" id="inlineradio4" value="0">
+                            <label class="form-check-label" for="inlineradio4">No</label>
+                        </div>
+                    </div> <!--Fin container tab docu -->
+                </div> <!--Fin tab docu -->
+            <div class="tab-pane fade" id="nav-entrega" role="tabpanel" aria-labelledby="nav-entrega-tab">
                 <span class="input-group-text inp-gris" id="dat" style="margin:10px; font-size:large;">Condicion de entrega</span>
                 <div class="container">
                     <label for="radio" class="txt-rad" >Radio:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="1">
+                            <input asp-for="Radio" class="form-check-input" type="radio" id="inlineradio1" value="1">
                     <label class="form-check-label" for="inlineradio1">Si funciona</label>
                 </div>
                 <div class="form-check form-check-inline">
-                        <input asp-for="Radio" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineradio1" value="0">
+                            <input asp-for="Radio" class="form-check-input" type="radio" id="inlineradio1" value="0">
                     <label class="form-check-label" for="inlineradio1">No funciona</label>
                 </div>
                 <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Mascara de radio:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="MascRad" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="1">
+                        <input asp-for="MascRad" class="form-check-input" type="radio" id="inlineradio2" value="1">
                     <label class="form-check-label" for="inlineradio2">Si funciona</label>
                 </div>
                 <div class="form-check form-check-inline">
-                        <input asp-for="MascRad" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineradio2" value="0">
+                        <input asp-for="MascRad" class="form-check-input" type="radio" id="inlineradio2" value="0">
                     <label class="form-check-label" for="inlineradio2">No funciona</label>
                 </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Perilla de calefaccion:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="PerillaCal" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="1">
+                        <input asp-for="PerillaCal" class="form-check-input" type="radio" id="inlineradio3" value="1">
                         <label class="form-check-label" for="inlineradio3">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="PerillaCal" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineradio3" value="0">
+                        <input asp-for="PerillaCal" class="form-check-input" type="radio" id="inlineradio3" value="0">
                         <label class="form-check-label" for="inlineradio3">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Aire acondicionado:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="AC" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="1">
+                        <input asp-for="AC" class="form-check-input" type="radio" id="inlineradio4" value="1">
                         <label class="form-check-label" for="inlineradio4">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="AC" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineradio4" value="0">
+                        <input asp-for="AC" class="form-check-input" type="radio" id="inlineradio4" value="0">
                         <label class="form-check-label" for="inlineradio4">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Control alarma:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="ControlAlarma" class="form-check-input" type="radio" name="inlineRadioOptions5" id="inlineradio5" value="1">
+                        <input asp-for="ControlAlarma" class="form-check-input" type="radio" id="inlineradio5" value="1">
                         <label class="form-check-label" for="inlineradio5">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="ControlAlarma" class="form-check-input" type="radio" name="inlineRadioOptions5" id="inlineradio5" value="0">
+                        <input asp-for="ControlAlarma" class="form-check-input" type="radio" id="inlineradio5" value="0">
                         <label class="form-check-label" for="inlineradio5">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Pito:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Pito" class="form-check-input" type="radio" name="inlineRadioOptions6" id="inlineradio6" value="1">
+                        <input asp-for="Pito" class="form-check-input" type="radio" id="inlineradio6" value="1">
                         <label class="form-check-label" for="inlineradio6">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Pito" class="form-check-input" type="radio" name="inlineRadioOptions6" id="inlineradio6" value="0">
+                        <input asp-for="Pito" class="form-check-input" type="radio" id="inlineradio6" value="0">
                         <label class="form-check-label" for="inlineradio6">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Espejo Interno:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EspejoIn" class="form-check-input" type="radio" name="inlineRadioOptions7" id="inlineradio7" value="1">
+                        <input asp-for="EspejoIn" class="form-check-input" type="radio" id="inlineradio7" value="1">
                         <label class="form-check-label" for="inlineradio7">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EspejoIn" class="form-check-input" type="radio" name="inlineRadioOptions7" id="inlineradio7" value="0">
+                        <input asp-for="EspejoIn" class="form-check-input" type="radio" id="inlineradio7" value="0">
                         <label class="form-check-label" for="inlineradio7">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Antena:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Antena" class="form-check-input" type="radio" name="inlineRadioOptions8" id="inlineradio8" value="1">
+                        <input asp-for="Antena" class="form-check-input" type="radio" id="inlineradio8" value="1">
                         <label class="form-check-label" for="inlineradio8">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Antena" class="form-check-input" type="radio" name="inlineRadioOptions8" id="inlineradio8" value="0">
+                        <input asp-for="Antena" class="form-check-input" type="radio" id="inlineradio8" value="0">
                         <label class="form-check-label" for="inlineradio8">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Tapa Llanta:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaLlanta" class="form-check-input" type="radio" name="inlineRadioOptions9" id="inlineradio9" value="1">
+                        <input asp-for="TapaLlanta" class="form-check-input" type="radio" id="inlineradio9" value="1">
                         <label class="form-check-label" for="inlineradio9">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaLlanta" class="form-check-input" type="radio" name="inlineRadioOptions9" id="inlineradio9" value="0">
+                        <input asp-for="TapaLlanta" class="form-check-input" type="radio" id="inlineradio9" value="0">
                         <label class="form-check-label" for="inlineradio9">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Espejos Externos:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EspejoExt" class="form-check-input" type="radio" name="inlineRadioOptions10" id="inlineradio10" value="1">
+                        <input asp-for="EspejoExt" class="form-check-input" type="radio" id="inlineradio10" value="1">
                         <label class="form-check-label" for="inlineradio10">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EspejoExt" class="form-check-input" type="radio" name="inlineRadioOptions10" id="inlineradio10" value="0">
+                        <input asp-for="EspejoExt" class="form-check-input" type="radio" id="inlineradio10" value="0">
                         <label class="form-check-label" for="inlineradio10">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Emblemas Laterales:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EmbLat" class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineradio11" value="1">
+                        <input asp-for="EmbLat" class="form-check-input" type="radio" id="inlineradio11" value="1">
                         <label class="form-check-label" for="inlineradio11">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EmbLat" class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineradio11" value="0">
+                        <input asp-for="EmbLat" class="form-check-input" type="radio" id="inlineradio11" value="0">
                         <label class="form-check-label" for="inlineradio11">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Emblemas Posterior:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EmbPost" class="form-check-input" type="radio" name="inlineRadioOptions12" id="inlineradio12" value="1">
+                        <input asp-for="EmbPost" class="form-check-input" type="radio" id="inlineradio12" value="1">
                         <label class="form-check-label" for="inlineradio12">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="EmbPost" class="form-check-input" type="radio" name="inlineRadioOptions12" id="inlineradio12" value="0">
+                        <input asp-for="EmbPost" class="form-check-input" type="radio" id="inlineradio12" value="0">
                         <label class="form-check-label" for="inlineradio12">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Gato:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Gato" class="form-check-input" type="radio" name="inlineRadioOptions13" id="inlineradio13" value="1">
+                        <input asp-for="Gato" class="form-check-input" type="radio" id="inlineradio13" value="1">
                         <label class="form-check-label" for="inlineradio13">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Gato" class="form-check-input" type="radio" name="inlineRadioOptions13" id="inlineradio13" value="0">
+                        <input asp-for="Gato" class="form-check-input" type="radio" id="inlineradio13" value="0">
                         <label class="form-check-label" for="inlineradio13">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Llave de Ruedas:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="LlaveRuedas" class="form-check-input" type="radio" name="inlineRadioOptions14" id="inlineradio14" value="1">
+                        <input asp-for="LlaveRuedas" class="form-check-input" type="radio" id="inlineradio14" value="1">
                         <label class="form-check-label" for="inlineradio14">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="LlaveRuedas" class="form-check-input" type="radio" name="inlineRadioOptions14" id="inlineradio14" value="0">
+                        <input asp-for="LlaveRuedas" class="form-check-input" type="radio" id="inlineradio14" value="0">
                         <label class="form-check-label" for="inlineradio14">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Herramientas:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Herramientas" class="form-check-input" type="radio" name="inlineRadioOptions15" id="inlineradio15" value="1">
+                        <input asp-for="Herramientas" class="form-check-input" type="radio" id="inlineradio15" value="1">
                         <label class="form-check-label" for="inlineradio15">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Herramientas" class="form-check-input" type="radio" name="inlineRadioOptions15" id="inlineradio15" value="0">
+                        <input asp-for="Herramientas" class="form-check-input" type="radio" id="inlineradio15" value="0">
                         <label class="form-check-label" for="inlineradio15">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Kit de carretera:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="KitCarretera" class="form-check-input" type="radio" name="inlineRadioOptions16" id="inlineradio16" value="1">
+                        <input asp-for="KitCarretera" class="form-check-input" type="radio" id="inlineradio16" value="1">
                         <label class="form-check-label" for="inlineradio16">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="KitCarretera" class="form-check-input" type="radio" name="inlineRadioOptions16" id="inlineradio16" value="0">
+                        <input asp-for="KitCarretera" class="form-check-input" type="radio" id="inlineradio16" value="0">
                         <label class="form-check-label" for="inlineradio16">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Tapa de combustible:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaGas" class="form-check-input" type="radio" name="inlineRadioOptions17" id="inlineradio17" value="1">
+                        <input asp-for="TapaGas" class="form-check-input" type="radio" id="inlineradio17" value="1">
                         <label class="form-check-label" for="inlineradio17">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaGas" class="form-check-input" type="radio" name="inlineRadioOptions17" id="inlineradio17" value="0">
+                        <input asp-for="TapaGas" class="form-check-input" type="radio" id="inlineradio17" value="0">
                         <label class="form-check-label" for="inlineradio17">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Encendedor:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Encendedor" class="form-check-input" type="radio" name="inlineRadioOptions18" id="inlineradio18" value="1">
+                        <input asp-for="Encendedor" class="form-check-input" type="radio" id="inlineradio18" value="1">
                         <label class="form-check-label" for="inlineradio18">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Encendedor" class="form-check-input" type="radio" name="inlineRadioOptions18" id="inlineradio18" value="0">
+                        <input asp-for="Encendedor" class="form-check-input" type="radio" id="inlineradio18" value="0">
                         <label class="form-check-label" for="inlineradio18">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Tapa Tanq.Lui.Frenos:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaLiqFrenos" class="form-check-input" type="radio" name="inlineRadioOptions19" id="inlineradio19" value="1">
+                        <input asp-for="TapaLiqFrenos" class="form-check-input" type="radio" id="inlineradio19" value="1">
                         <label class="form-check-label" for="inlineradio19">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaLiqFrenos" class="form-check-input" type="radio" name="inlineRadioOptions19" id="inlineradio19" value="0">
+                        <input asp-for="TapaLiqFrenos" class="form-check-input" type="radio" id="inlineradio19" value="0">
                         <label class="form-check-label" for="inlineradio19">No funciona</label>
                     </div>
                      <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Tapa caja fusibles:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaFusibles" class="form-check-input" type="radio" name="inlineRadioOptions20" id="inlineradio20" value="1">
+                        <input asp-for="TapaFusibles" class="form-check-input" type="radio"  id="inlineradio20" value="1">
                         <label class="form-check-label" for="inlineradio20">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="TapaFusibles" class="form-check-input" type="radio" name="inlineRadioOptions20" id="inlineradio20" value="0">
+                        <input asp-for="TapaFusibles" class="form-check-input" type="radio" id="inlineradio20" value="0">
                         <label class="form-check-label" for="inlineradio20">No funciona</label>
                     </div>
                      <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Alfombras:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Alfombras" class="form-check-input" type="radio" name="inlineRadioOptions21" id="inlineradio21" value="1">
+                        <input asp-for="Alfombras" class="form-check-input" type="radio" id="inlineradio21" value="1">
                         <label class="form-check-label" for="inlineradio21">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="Alfombras" class="form-check-input" type="radio" name="inlineRadioOptions21" id="inlineradio21" value="0">
+                        <input asp-for="Alfombras" class="form-check-input" type="radio" id="inlineradio21" value="0">
                         <label class="form-check-label" for="inlineradio21">No funciona</label>
                     </div>
                      <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Llantas de emergencia:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="LlantaEmergencia" class="form-check-input" type="radio" name="inlineRadioOptions22" id="inlineradio22" value="1">
+                        <input asp-for="LlantaEmergencia" class="form-check-input" type="radio" id="inlineradio22" value="1">
                         <label class="form-check-label" for="inlineradio22">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="LlantaEmergencia" class="form-check-input" type="radio" name="inlineRadioOptions22" id="inlineradio222" value="0">
+                        <input asp-for="LlantaEmergencia" class="form-check-input" type="radio" id="inlineradio222" value="0">
                         <label class="form-check-label" for="inlineradio22">No funciona</label>
                     </div>
                      <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Copas de llantas:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="CopaLlanta" class="form-check-input" type="radio" name="inlineRadioOptions23" id="inlineradio23" value="1">
+                        <input asp-for="CopaLlanta" class="form-check-input" type="radio" id="inlineradio23" value="1">
                         <label class="form-check-label" for="inlineradio23">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="CopaLlanta" class="form-check-input" type="radio" name="inlineRadioOptions23" id="inlineradio23" value="0">
+                        <input asp-for="CopaLlanta" class="form-check-input" type="radio" id="inlineradio23" value="0">
                         <label class="form-check-label" for="inlineradio23">No funciona</label>
                     </div>
                     <div class="w-100"></div>
                     <label for="radio" class="txt-rad">Cable pasacorriente:</label>
                     <div class="form-check form-check-inline">
-                        <input asp-for="CableCorriente" class="form-check-input" type="radio" name="inlineRadioOptions24" id="inlineradio24" value="1">
+                        <input asp-for="CableCorriente" class="form-check-input" type="radio" id="inlineradio24" value="1">
                         <label class="form-check-label" for="inlineradio24">Si funciona</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input asp-for="CableCorriente" class="form-check-input" type="radio" name="inlineRadioOptions24" id="inlineradio24" value="0">
+                        <input asp-for="CableCorriente" class="form-check-input" type="radio" id="inlineradio24" value="0">
                         <label class="form-check-label" for="inlineradio24">No funciona</label>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div> <!--Fin container tab entrega -->
+                </div>  <!--Fin tab cond entrega -->
+        </div> <!--Fin nav tabs -->
+    </div> <!--Fin col con tabs -->
+</div><!--Fin row-->
 </form>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WF_App.Models;
+using WF_App.Models.Stored_Procedures;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<DbTalleresContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBContext"));
 });
 
+builder.Services.AddScoped<Servicios>();
+builder.Services.AddScoped<FacturacionSP>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
