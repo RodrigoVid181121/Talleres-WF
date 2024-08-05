@@ -4,8 +4,8 @@ namespace WF_App.Models.ViewModels
 {
     public class ServiciosViewModel
     {
+        public string? key { get; set; }
         public string? PlacaSearch { get; set; }
-        public bool? Enviado { get; set; }
         public string? Action {  get; set; }
         //Datos de quien entrega
         [Required]
@@ -68,6 +68,9 @@ namespace WF_App.Models.ViewModels
         [MaxLength(500)]
         public string? Comentarios { get; set; }
         public string? Imagen { get; set; }
+        [Display(Name ="Servicio")]
+        [Required]
+        public int? IdServicio { get; set; }
 
         //Condiciones de entrega
 

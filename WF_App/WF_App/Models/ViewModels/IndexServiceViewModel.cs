@@ -7,5 +7,6 @@
         public string Vehiculo { get; set; }
         public string Placa { get; set; }
         public string FechaIn { get; set; }
+        public string Servicio { get; set; }
     }
 }

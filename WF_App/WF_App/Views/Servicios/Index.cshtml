@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model List<IndexServiceViewModel>
+<script src="~/js/IndexServices.js"></script>
 <div class="row">
     <form asp-action="Create">
         <div class="col-sm-4">
@@ -24,6 +25,7 @@
                 <th>Vehiculo</th>
                 <th>Placa</th>
                 <th>Check in</th>
+                <th>Servicio</th>
             </tr>
         </thead>
         <tbody style="align-items:center">
@@ -32,6 +34,7 @@
                 {
                 <tr>
                     <td>
+                        <button type="button" class="btn btn-danger btn-serv" value="Finalizar" onclick="AnularService(@servicio.ID_Servicio)"><i class="fa-solid fa-pen-to-square" style="margin:1px;"></i>Anular Servicio</button>
                         <button type="button" class="btn btn-primary" value="Finalizar" onclick="SubmitValue(@servicio.ID_Servicio)"><i class="fa-solid fa-pen-to-square" style="margin:1px;"></i>Finalizar Servicio</button>
                     </td>
 
@@ -39,10 +42,12 @@
                     <td>@Html.DisplayFor(m => servicio.Vehiculo)</td>
                     <td>@Html.DisplayFor(m => servicio.Placa)</td>
                     <td>@Html.DisplayFor(m => servicio.FechaIn)</td>
+                    <td>@Html.DisplayFor(m => servicio.Servicio)</td>
                 </tr>
                 }
             <input type="hidden" name="serviceId" id="serviceId" />
-            </form>           
+            </form>
         </tbody>
     </table>
+    <input type="hidden" name="serviceId" id="serviceId" />
 </div>

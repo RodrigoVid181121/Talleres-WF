@@ -37,5 +37,11 @@ public partial class Servicio
 
     public string? Comentarios { get; set; }
 
+    public int? IdServicio { get; set; }
+
+    public bool? Anulado { get; set; }
+
+    public virtual ListaServicio? IdServicioNavigation { get; set; }
+
     public virtual Vehiculo? IdVehiculoNavigation { get; set; }
 }
