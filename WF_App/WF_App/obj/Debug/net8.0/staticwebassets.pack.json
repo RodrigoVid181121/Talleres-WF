@@ -29,6 +29,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\Facturacion.js",
+      "PackagePath": "staticwebassets\\js\\Facturacion.js"
+    },
+    {
+      "Id": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\IndexServices.js",
+      "PackagePath": "staticwebassets\\js\\IndexServices.js"
+    },
+    {
+      "Id": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\Services.js",
+      "PackagePath": "staticwebassets\\js\\Services.js"
+    },
+    {
       "Id": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
