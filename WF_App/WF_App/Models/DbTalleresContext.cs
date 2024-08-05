@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Data.SqlClient;
-using System.Data;
 using Microsoft.EntityFrameworkCore;
-using WF_App.Models.ViewModels;
 
 namespace WF_App.Models;
 
@@ -167,7 +164,6 @@ public partial class DbTalleresContext : DbContext
                 .HasColumnName("fecha_registro");
             entity.Property(e => e.IdProducto).HasColumnName("id_producto");
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
-            entity.Property(e => e.NumeroRef).HasColumnName("numero_ref");
             entity.Property(e => e.PrecioVenta)
                 .HasColumnType("decimal(5, 2)")
                 .HasColumnName("precio_venta");
@@ -258,6 +254,10 @@ public partial class DbTalleresContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("modelo_vehiculo");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(75)
+                .IsUnicode(false)
+                .HasColumnName("nombre");
             entity.Property(e => e.PrecioVenta)
                 .HasColumnType("decimal(5, 2)")
                 .HasColumnName("precio_venta");
@@ -343,7 +343,7 @@ public partial class DbTalleresContext : DbContext
                 .IsFixedLength()
                 .HasColumnName("codigo");
             entity.Property(e => e.Contraseña)
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("contraseña");
             entity.Property(e => e.IdCargo).HasColumnName("id_cargo");
@@ -351,9 +351,6 @@ public partial class DbTalleresContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
-            entity.Property(e => e.Salario)
-                .HasColumnType("decimal(5, 2)")
-                .HasColumnName("salario");
 
             entity.HasOne(d => d.IdCargoNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdCargo)
@@ -416,6 +413,10 @@ public partial class DbTalleresContext : DbContext
             entity.HasKey(e => e.IdVenta).HasName("PK__Venta__459533BF5B2FA7DF");
 
             entity.Property(e => e.IdVenta).HasColumnName("id_venta");
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(250)
+                .IsUnicode(false)
+                .HasColumnName("descripcion");
             entity.Property(e => e.Descuento).HasColumnName("descuento");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("(getdate())")
@@ -448,6 +449,4 @@ public partial class DbTalleresContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-    
 }

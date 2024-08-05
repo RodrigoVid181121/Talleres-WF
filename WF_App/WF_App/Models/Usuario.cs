@@ -17,8 +17,6 @@ public partial class Usuario
 
     public int? IdCargo { get; set; }
 
-    public decimal Salario { get; set; }
-
     public virtual Cargo? IdCargoNavigation { get; set; }
 
     public virtual ICollection<Ventum> Venta { get; set; } = new List<Ventum>();

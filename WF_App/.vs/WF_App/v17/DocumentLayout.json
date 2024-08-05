@@ -1,118 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\controllers\\facturacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\controllers\\facturacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\models\\stored procedures\\facturacionsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\models\\stored procedures\\facturacionsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\models\\viewmodels\\facturacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\models\\viewmodels\\facturacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\wwwroot\\js\\facturacion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\wwwroot\\js\\facturacion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|c:\\users\\navas\\downloads\\pasantias\\wf_app\\wf_app\\views\\facturacion\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57244E7B-8CBD-4D65-80C9-3423D5B5623F}|WF_App\\WF_App.csproj|solutionrelative:wf_app\\views\\facturacion\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WF_App\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WF_App\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAB4AAAB2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-05T01:46:08.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FacturacionSP.cs",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\Stored Procedures\\FacturacionSP.cs",
-              "RelativeDocumentMoniker": "WF_App\\Models\\Stored Procedures\\FacturacionSP.cs",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\Stored Procedures\\FacturacionSP.cs",
-              "RelativeToolTip": "WF_App\\Models\\Stored Procedures\\FacturacionSP.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAqwC8AAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T20:15:57.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Facturacion\\Create.cshtml",
-              "RelativeDocumentMoniker": "WF_App\\Views\\Facturacion\\Create.cshtml",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Views\\Facturacion\\Create.cshtml",
-              "RelativeToolTip": "WF_App\\Views\\Facturacion\\Create.cshtml",
-              "ViewState": "AQIAAC0AAAAAAAAAAIBJwEQAAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-04T01:39:25.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FacturacionViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\FacturacionViewModel.cs",
-              "RelativeDocumentMoniker": "WF_App\\Models\\ViewModels\\FacturacionViewModel.cs",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Models\\ViewModels\\FacturacionViewModel.cs",
-              "RelativeToolTip": "WF_App\\Models\\ViewModels\\FacturacionViewModel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAmwA4AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T20:18:34.152Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Facturacion.js",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\Facturacion.js",
-              "RelativeDocumentMoniker": "WF_App\\wwwroot\\js\\Facturacion.js",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\wwwroot\\js\\Facturacion.js",
-              "RelativeToolTip": "WF_App\\wwwroot\\js\\Facturacion.js",
-              "ViewState": "AQIAADIAAAAAAAAAAAAwwD8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-02T00:20:21.838Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FacturacionController.cs",
-              "DocumentMoniker": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\FacturacionController.cs",
-              "RelativeDocumentMoniker": "WF_App\\Controllers\\FacturacionController.cs",
-              "ToolTip": "C:\\Users\\navas\\Downloads\\Pasantias\\WF_App\\WF_App\\Controllers\\FacturacionController.cs",
-              "RelativeToolTip": "WF_App\\Controllers\\FacturacionController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAAGAAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T23:35:58.687Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -23,6 +23,8 @@ public partial class Producto
 
     public string? Biscosidad { get; set; }
 
+    public string? Nombre { get; set; }
+
     public virtual ICollection<DetalleVentum> DetalleVenta { get; set; } = new List<DetalleVentum>();
 
     public virtual Categoria? IdCategoriaNavigation { get; set; }
