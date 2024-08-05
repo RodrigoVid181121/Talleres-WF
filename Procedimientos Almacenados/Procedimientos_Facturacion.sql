@@ -33,7 +33,7 @@ DECLARE @IdCliente int, @Count int, @Ref int, @IdVehiculo int
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
 	END CATCH
 END
-
+GO
 CREATE PROCEDURE SP_CreateFacturaDetail
 @idProd int, @formaPago varchar(25), @cantidad int
 AS
@@ -55,3 +55,4 @@ DECLARE @Precio decimal(5,2), @SubTotal decimal(5,2), @IdVenta int
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
 	END CATCH
 END
+GO

@@ -170,3 +170,4 @@ BEGIN
 	ON cl.id = v.id_cliente
 	WHERE v.placa = @placa
 END
+GO
