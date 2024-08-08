@@ -30,6 +30,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYWNpb25cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/navas/Downloads/Pasantias/WF_App/WF_App/Views/Home/HomeWithoutLogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lV2l0aG91dExvZ0luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/navas/Downloads/Pasantias/WF_App/WF_App/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/navas/Downloads/Pasantias/WF_App/WF_App/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/navas/Downloads/Pasantias/WF_App/WF_App/Views/Shared/_LayoutWithoutLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRXaXRob3V0TG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/navas/Downloads/Pasantias/WF_App/WF_App/Views/Shared/_ValidationScriptsPartial.cshtml]

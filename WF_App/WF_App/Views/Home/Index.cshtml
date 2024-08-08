@@ -4,7 +4,15 @@
 }
 <body id="imgB">
 <div class="cont-center">
-    <h1 class="display-4 white-txt">Bienvenido</h1>
-    <p class="white-txt">Usuario</p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h1 class="display-4 white-txt">Bienvenido</h1>
+            <p class="white-txt">@User.Identity.Name</p>
+        }
+        else
+        {
+            <h1 class="display-4 white-txt">Bienvenido</h1>
+        }
+
 </div>
 </body>

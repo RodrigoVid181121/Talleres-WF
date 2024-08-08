@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
@@ -26,6 +27,7 @@ namespace WF_App.Controllers
         {
             return View();
         }
+
         public IActionResult Create()
         {
             ViewData["Productos"] = new SelectList(_context.Productos, "Id", "Codigo");

@@ -1,7 +1,9 @@
-﻿@{
+﻿@using WF_App.Models.ViewModels
+@{
     ViewData["Title"] = "LogIn";
-    Layout = null;
+    Layout = null;    
 }
+@model LoginViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,20 +17,26 @@
     <script src="~/lib/font-awesome/js/all.js"></script>
 </head>
 <body id="imgB">
-    <div class="cont-center container">
-        <h1 class="white-txt">Login</h1>
-        <h4 class="white-txt" style="font-weight:350;">Ingresa tu usuario y contraseña</h4>
-        <div class="inp-center">
-            <div class="input-group mb-3">
-                <span class="input-group-text inp-login" id="user-addon1"><i class="fa-solid fa-user"></i></span>
-                <input type="text" class="form-control inp-login" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+    <form asp-action="Verify">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="cont-center container">
+            <h1 class="white-txt">Login</h1>
+            <h4 class="white-txt" style="font-weight:350;">Ingresa tu usuario y contraseña</h4>
+            <div class="inp-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text inp-login" id="user-addon1"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" asp-for="Codigo" class="form-control inp-login" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text inp-login" id="pass-addon1"><i class="fa-solid fa-lock"></i></span>
+                    <input id="password" asp-for="Contraseña" type="password" class="form-control inp-login" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+                <button type="submit" class="btn inp-login">Login</button>
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text inp-login" id="pass-addon1"><i class="fa-solid fa-lock"></i></span>
-                <input id="password" type="text" class="form-control inp-login" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1">
-            </div>
-            <button type="submit" class="btn inp-login">Login</button>
         </div>
-    </div>
+    </form>
+    <form asp-action="Logout">
+        <button type="submit" class="btn inp-login">Continuar sin iniciar sesión</button>
+    </form>
 </body>
 </html>

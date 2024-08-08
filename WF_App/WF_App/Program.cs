@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using WF_App.Models;
 using WF_App.Models.Stored_Procedures;
@@ -14,6 +15,18 @@ builder.Services.AddDbContext<DbTalleresContext>(options =>
 
 builder.Services.AddScoped<Servicios>();
 builder.Services.AddScoped<FacturacionSP>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).
+    AddCookie(options =>
+    {
+        options.LoginPath = "/Home/LogIn";
+        options.AccessDeniedPath = "/Home/Index";
+        // Configurar la duración de la cookie
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+        // Configurar para que la cookie se renueve automáticamente
+        options.SlidingExpiration = true;
+    });
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,9 +43,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=LogIn}/{id?}");
 
 app.Run();
