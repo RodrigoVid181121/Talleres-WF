@@ -79,8 +79,8 @@ namespace WF_App.Models.Stored_Procedures
                                     Cantidad = Convert.ToInt16(sr["cantidad"]),
                                     PrecioVenta = Convert.ToDecimal(sr["precio_venta"]),
                                     ModeloVehiculo = sr["modelo_vehiculo"].ToString().Trim(),
-                                    NombreMarca = sr["Marca"].ToString().Trim(),
-                                    NombreCategoria = sr["Categoria"].ToString().Trim(),
+                                    MarcaNombre = sr["Marca"].ToString().Trim(),
+                                    CategoriaNombre = sr["Categoria"].ToString().Trim(),
                                     Nombre = sr["nombre"].ToString().Trim(),
                                     Medida = sr["medida"].ToString().Trim(),
                                     Biscosidad = sr["biscosidad"].ToString().Trim()
@@ -141,6 +141,40 @@ namespace WF_App.Models.Stored_Procedures
                 }
             }
             return model;
+        }
+        public List<IndexProductViewModel> IndexSelectProducts()
+        {
+            var indexProductViewModel = new List<IndexProductViewModel>();
+
+            using (SqlConnection con = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_IndexProducts", con))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    con.Open();
+                    using (SqlDataReader sr = command.ExecuteReader())
+                    {
+                        while (sr.Read())
+                        {
+                            var viewModel = new IndexProductViewModel
+                            {
+                                ID = Convert.ToInt32(sr["ID"]),
+                                Nombre = sr["Nombre"].ToString(),
+                                Codigo = sr["Código"].ToString(),
+                                PrecioVenta = Convert.ToDecimal(sr["Precio de Venta"]),
+                                Categoria = sr["Categoría"].ToString(),
+                                Marca = sr["Marca"].ToString(),
+                                Estado = Convert.ToInt32(sr["Estado"])
+                            };
+                            indexProductViewModel.Add(viewModel);
+                        }
+                    }
+                    con.Close();
+                }
+            }
+
+            return indexProductViewModel;
         }
     }
 }

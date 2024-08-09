@@ -27,7 +27,7 @@ namespace WF_App.Controllers
 
         public IActionResult Index()
         {
-            var productos = _spProducts.IndexSelect();
+            var productos = _spProducts.IndexSelectProducts();
             return View(productos);
 
         }

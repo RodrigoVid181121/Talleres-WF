@@ -4,6 +4,7 @@ namespace WF_App.Models.ViewModels
 {
     public class ProductosViewModel
     {
+        [Required]
         public int? Id { get; set; }
         [Required]
         public string Codigo { get; set; }
@@ -27,6 +28,5 @@ namespace WF_App.Models.ViewModels
         public string MarcaNombre { get; set; }
         [Required]
         public string CategoriaNombre { get; set; }
-        [Required]
     }
 }
