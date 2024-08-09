@@ -1,7 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text.Json;
 using WF_App.Models;
+using WF_App.Models.ViewModels;
+using WF_App.Models.Stored_Procedures;
+using Microsoft.EntityFrameworkCore;
 
 namespace WF_App.Controllers
 {
@@ -11,16 +16,18 @@ namespace WF_App.Controllers
 
         private readonly ILogger<ProductosController> _logger;
         private readonly DbTalleresContext _context;
+        private readonly Productos _spProducts;
 
-        public ProductosController(ILogger<ProductosController> logger, DbTalleresContext context)
+        public ProductosController(ILogger<ProductosController> logger, DbTalleresContext context, Productos ps)
         {
             _logger = logger;
             _context = context;
+            _spProducts = ps;
         }
 
         public IActionResult Index()
         {
-            var productos = _context.Productos.ToList();
+            var productos = _spProducts.IndexSelect();
             return View(productos);
 
         }
